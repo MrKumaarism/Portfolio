@@ -652,7 +652,7 @@
               <span class="tag">Storyboard</span>
               <span class="tag">Motion Design</span>
             </div>
-            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+            <a href="#" class="btn-pill-outline btn-sm" onclick="showCaseStudy('cs-motion-campaign');return false;">View Case Study →</a>
           </div>
         </div>
         <div class="cs-card reveal reveal-delay-1">
@@ -668,7 +668,7 @@
               <span class="tag">Layout Strategy</span>
               <span class="tag">Visual Design</span>
             </div>
-            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+            <a href="#" class="btn-pill-outline btn-sm" onclick="showCaseStudy('cs-landing-page');return false;">View Case Study →</a>
           </div>
         </div>
         <div class="cs-card reveal reveal-delay-2">
@@ -684,7 +684,7 @@
               <span class="tag">Design System</span>
               <span class="tag">Social Campaign</span>
             </div>
-            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+            <a href="#" class="btn-pill-outline btn-sm" onclick="showCaseStudy('cs-social-system');return false;">View Case Study →</a>
           </div>
         </div>
       </div>
@@ -743,13 +743,13 @@
         <button class="filter-tab">Branding</button>
         <button class="filter-tab">GIFs</button>
       </div>
-      <div class="gallery-grid-3">
-        <div class="gallery-item reveal"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Motion Video</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Product Campaign Video</div></div></div>
-        <div class="gallery-item reveal reveal-delay-1"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Social Post</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social</span><div class="gallery-name">B2B Social Campaign</div></div></div>
-        <div class="gallery-item reveal reveal-delay-2"><div class="visual-block visual-web gallery-thumb"><div class="visual-inner"><div class="visual-label">Landing Page</div></div></div><div class="gallery-meta"><span class="gallery-tag">Web</span><div class="gallery-name">Landing Page Design</div></div></div>
-        <div class="gallery-item reveal reveal-delay-1"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo System</div></div></div><div class="gallery-meta"><span class="gallery-tag">Branding</span><div class="gallery-name">Brand Identity System</div></div></div>
-        <div class="gallery-item reveal reveal-delay-2"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF Animation</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF</span><div class="gallery-name">Animated Campaign GIF</div></div></div>
-        <div class="gallery-item reveal reveal-delay-3"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Campaign Visual</div></div></div><div class="gallery-meta"><span class="gallery-tag">Campaign</span><div class="gallery-name">Digital Campaign System</div></div></div>
+      <div class="gallery-grid-3" id="home-snapshot-gallery">
+        <div class="gallery-item reveal ws-clickable" data-category="motion" onclick="openWorkSnapshotItem('ws-1');return false;"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Motion Video</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Product Campaign Video</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1 ws-clickable" data-category="social" onclick="openWorkSnapshotItem('ws-2');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Social Post</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social</span><div class="gallery-name">B2B Social Campaign</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2 ws-clickable" data-category="web" onclick="openWorkSnapshotItem('ws-3');return false;"><div class="visual-block visual-web gallery-thumb"><div class="visual-inner"><div class="visual-label">Landing Page</div></div></div><div class="gallery-meta"><span class="gallery-tag">Web</span><div class="gallery-name">Landing Page Design</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1 ws-clickable" data-category="branding" onclick="openWorkSnapshotItem('ws-4');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo System</div></div></div><div class="gallery-meta"><span class="gallery-tag">Branding</span><div class="gallery-name">Brand Identity System</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2 ws-clickable" data-category="gifs" onclick="openWorkSnapshotItem('ws-5');return false;"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF Animation</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF</span><div class="gallery-name">Animated Campaign GIF</div></div></div>
+        <div class="gallery-item reveal reveal-delay-3 ws-clickable" data-category="motion" onclick="openWorkSnapshotItem('ws-6');return false;"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Campaign Visual</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Digital Campaign System</div></div></div>
       </div>
       <div class="section-cta reveal">
         <a href="#" class="btn-pill-outline" onclick="showPage('work-gallery');return false;">Explore Work Gallery →</a>
@@ -893,7 +893,7 @@
   <section class="tile-light">
     <div class="container">
       <!-- CS 1 -->
-      <div class="cs-full-card reveal">
+      <div class="cs-full-card reveal" id="cs-motion-campaign">
         <div class="cs-full-grid">
           <div class="cs-full-media">
             <div class="visual-block visual-motion cs-hero-img"><div class="visual-inner"><div class="visual-label">Case Study Hero</div></div></div>
@@ -919,7 +919,7 @@
         </div>
       </div>
       <!-- CS 2 -->
-      <div class="cs-full-card reveal">
+      <div class="cs-full-card reveal" id="cs-landing-page">
         <div class="cs-full-grid">
           <div class="cs-full-media">
             <div class="visual-block visual-web cs-hero-img"><div class="visual-inner"><div class="visual-label">Landing Page Hero</div></div></div>
@@ -938,7 +938,7 @@
         </div>
       </div>
       <!-- CS 3 -->
-      <div class="cs-full-card reveal">
+      <div class="cs-full-card reveal" id="cs-social-system">
         <div class="cs-full-grid">
           <div class="cs-full-media">
             <div class="visual-block visual-social cs-hero-img"><div class="visual-inner"><div class="visual-label">Social Media System</div></div></div>
@@ -1024,7 +1024,7 @@
       <div class="filter-tabs">
         <button class="filter-tab active">All</button>
         <button class="filter-tab">Static</button>
-        <button class="filter-tab">Carousel</button>
+        <button class="filter-tab">GIF</button>
         <button class="filter-tab">Video</button>
         <button class="filter-tab">Logos</button>
         <button class="filter-tab">Favourites</button>
@@ -1034,38 +1034,38 @@
       <div class="gallery-section reveal">
         <h3 class="gallery-section-title">Motion Video</h3>
         <div class="gallery-grid-3">
-          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 1 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Product Launch Campaign Video</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 2 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Social Media Reel</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 3 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2023</span><div class="gallery-name">Brand Explainer</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="video" onclick="openWorkGalleryItem('wg-v1');return false;"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 1 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Product Launch Campaign Video</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="video" onclick="openWorkGalleryItem('wg-v2');return false;"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 2 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Social Media Reel</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="video" onclick="openWorkGalleryItem('wg-v3');return false;"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 3 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2023</span><div class="gallery-name">Brand Explainer</div></div></div>
         </div>
       </div>
 
       <div class="gallery-section reveal">
         <h3 class="gallery-section-title">Social Media Posts</h3>
         <div class="gallery-grid-4">
-          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Campaign Post</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · LinkedIn</span><div class="gallery-name">B2B Campaign</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Product Feature</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Twitter</span><div class="gallery-name">Promotional</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="static" onclick="openWorkGalleryItem('wg-s1');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Campaign Post</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="static" onclick="openWorkGalleryItem('wg-s2');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · LinkedIn</span><div class="gallery-name">B2B Campaign</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="static" onclick="openWorkGalleryItem('wg-s3');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Product Feature</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="static" onclick="openWorkGalleryItem('wg-s4');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Twitter</span><div class="gallery-name">Promotional</div></div></div>
         </div>
       </div>
 
       <div class="gallery-section reveal">
         <h3 class="gallery-section-title">GIF Animations</h3>
         <div class="gallery-grid-3">
-          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 1 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Campaign Animation</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 2 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Feature Highlight</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 3 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Social Asset</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="gif" onclick="openWorkGalleryItem('wg-g1');return false;"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 1 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Campaign Animation</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="gif" onclick="openWorkGalleryItem('wg-g2');return false;"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 2 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Feature Highlight</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="gif" onclick="openWorkGalleryItem('wg-g3');return false;"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 3 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Social Asset</div></div></div>
         </div>
       </div>
 
       <div class="gallery-section reveal">
         <h3 class="gallery-section-title">Logo &amp; Brand</h3>
         <div class="gallery-grid-4">
-          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand Identity</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand System</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Visual Identity</div></div></div>
-          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Mark Design</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="logos" onclick="openWorkGalleryItem('wg-l1');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand Identity</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="logos" onclick="openWorkGalleryItem('wg-l2');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand System</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="logos" onclick="openWorkGalleryItem('wg-l3');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Visual Identity</div></div></div>
+          <div class="gallery-item ws-clickable" data-category="logos" onclick="openWorkGalleryItem('wg-l4');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Mark Design</div></div></div>
         </div>
       </div>
     </div>
@@ -1711,7 +1711,53 @@
 })();
 </script>
 
+<!-- ════════════════════════════════
+     WORK SNAPSHOT MODAL
+════════════════════════════════ -->
+<div id="wg-modal" class="wg-modal" role="dialog" aria-modal="true" aria-label="Work item details">
+  <div class="wg-modal-overlay" onclick="closeWorkGalleryModal()"></div>
+  <div class="wg-modal-panel">
+    <button class="wg-modal-close" onclick="closeWorkGalleryModal()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="wg-modal-body">
+      <div id="wg-modal-visual" class="visual-block wg-modal-visual">
+        <div class="visual-inner">
+          <div id="wg-modal-label" class="visual-label"></div>
+        </div>
+      </div>
+      <div class="wg-modal-info">
+        <span id="wg-modal-tag" class="gallery-tag wg-modal-tag-pill"></span>
+        <h2 id="wg-modal-title" class="wg-modal-title"></h2>
+        <div class="wg-modal-desc">
+          <p id="wg-modal-desc-text">Full description and project details coming soon. This space will include the creative brief, tools used, outcome, and more context about this work.</p>
+        </div>
+        <div class="wg-modal-video-wrap">
+          <div class="wg-modal-video-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Video / Preview Coming Soon</span>
+          </div>
+        </div>
+        <a href="#" class="btn-pill btn-sm wg-modal-gallery-link" onclick="closeWorkGalleryModal();return false;">Browse Full Work Gallery →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="portfolio.js"></script>
+
+<script>
+function showCaseStudy(csId) {
+  showPage('case-studies', { keepScroll: true });
+  setTimeout(function () {
+    var el = document.getElementById(csId);
+    if (!el) return;
+    var navHeight = (document.querySelector('.site-nav') || {}).offsetHeight || 80;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - 24;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }, 120);
+}
+</script>
 
 <script>
 (function () {
