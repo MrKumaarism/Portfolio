@@ -137,10 +137,99 @@ function initFilterTabs() {
       tab.addEventListener('click', () => {
         group.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
+
+        const filter = tab.textContent.trim().toLowerCase();
+        const container = group.closest('.container') || group.parentElement;
+        if (!container) return;
+
+        const items = container.querySelectorAll('.gallery-item[data-category]');
+        if (!items.length) return;
+
+        items.forEach(item => {
+          const cat = (item.dataset.category || '').toLowerCase();
+          const show = filter === 'all' || cat === filter;
+          item.style.display = show ? '' : 'none';
+        });
+
+        /* Hide gallery sections whose every item is hidden */
+        container.querySelectorAll('.gallery-section').forEach(section => {
+          const sectionItems = section.querySelectorAll('.gallery-item[data-category]');
+          if (!sectionItems.length) return;
+          const hasVisible = Array.from(sectionItems).some(i => i.style.display !== 'none');
+          section.style.display = hasVisible ? '' : 'none';
+        });
       });
     });
   });
 }
+
+/* ── GALLERY MODAL DATA ── */
+var workSnapshotItems = {
+  'ws-1': { title: 'Product Campaign Video', tag: 'Motion',   visual: 'visual-motion', label: 'Motion Video' },
+  'ws-2': { title: 'B2B Social Campaign',    tag: 'Social',   visual: 'visual-social', label: 'Social Post' },
+  'ws-3': { title: 'Landing Page Design',    tag: 'Web',      visual: 'visual-web',    label: 'Landing Page' },
+  'ws-4': { title: 'Brand Identity System',  tag: 'Branding', visual: 'visual-brand',  label: 'Logo System' },
+  'ws-5': { title: 'Animated Campaign GIF',  tag: 'GIF',      visual: 'visual-gif',    label: 'GIF Animation' },
+  'ws-6': { title: 'Digital Campaign System',tag: 'Motion',   visual: 'visual-motion', label: 'Campaign Visual' }
+};
+
+var workGalleryItems = {
+  'wg-v1': { title: 'Product Launch Campaign Video', tag: 'Motion · 2024', visual: 'visual-motion', label: 'Video Thumbnail 1 ▶' },
+  'wg-v2': { title: 'Social Media Reel',             tag: 'Motion · 2024', visual: 'visual-motion', label: 'Video Thumbnail 2 ▶' },
+  'wg-v3': { title: 'Brand Explainer',               tag: 'Motion · 2023', visual: 'visual-motion', label: 'Video Thumbnail 3 ▶' },
+  'wg-s1': { title: 'Campaign Post',    tag: 'Social · Instagram', visual: 'visual-social', label: 'Static Post 1' },
+  'wg-s2': { title: 'B2B Campaign',     tag: 'Social · LinkedIn',  visual: 'visual-social', label: 'Static Post 2' },
+  'wg-s3': { title: 'Product Feature',  tag: 'Social · Instagram', visual: 'visual-social', label: 'Static Post 3' },
+  'wg-s4': { title: 'Promotional',      tag: 'Social · Twitter',   visual: 'visual-social', label: 'Static Post 4' },
+  'wg-g1': { title: 'Campaign Animation', tag: 'GIF · Loop', visual: 'visual-gif', label: 'GIF 1 — Animated' },
+  'wg-g2': { title: 'Feature Highlight',  tag: 'GIF · Loop', visual: 'visual-gif', label: 'GIF 2 — Animated' },
+  'wg-g3': { title: 'Social Asset',       tag: 'GIF · Loop', visual: 'visual-gif', label: 'GIF 3 — Animated' },
+  'wg-l1': { title: 'Brand Identity',  tag: 'Logo', visual: 'visual-brand', label: 'Logo 1' },
+  'wg-l2': { title: 'Brand System',    tag: 'Logo', visual: 'visual-brand', label: 'Logo 2' },
+  'wg-l3': { title: 'Visual Identity', tag: 'Logo', visual: 'visual-brand', label: 'Logo 3' },
+  'wg-l4': { title: 'Mark Design',     tag: 'Logo', visual: 'visual-brand', label: 'Logo 4' }
+};
+
+function openGalleryModal(item) {
+  var modal    = document.getElementById('wg-modal');
+  var visualEl = document.getElementById('wg-modal-visual');
+  var labelEl  = document.getElementById('wg-modal-label');
+  var tagEl    = document.getElementById('wg-modal-tag');
+  var titleEl  = document.getElementById('wg-modal-title');
+  if (!modal || !visualEl || !labelEl || !tagEl || !titleEl) return;
+
+  visualEl.className = 'visual-block wg-modal-visual ' + item.visual;
+  labelEl.textContent = item.label;
+  tagEl.textContent   = item.tag;
+  titleEl.textContent = item.title;
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openWorkSnapshotItem(itemId) {
+  var item = workSnapshotItems[itemId];
+  if (!item) return;
+  showPage('work-gallery');
+  setTimeout(function () { openGalleryModal(item); }, 160);
+}
+
+function openWorkGalleryItem(itemId) {
+  var item = workGalleryItems[itemId];
+  if (!item) return;
+  openGalleryModal(item);
+}
+
+function closeWorkGalleryModal() {
+  var modal = document.getElementById('wg-modal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Close modal on Escape */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeWorkGalleryModal();
+});
 
 /* ── ENQUIRY TOGGLE ── */
 function initEnquiryToggle() {
