@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Ritesh Kumaar — AI Creative &amp; Product Design Lead | SaaS GTM | AppExchange</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio.css">
+
+<style>
+  /* Production header/navigation fix */
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #0d0d0f !important;
+  }
+
+  /* Hide the old dev switcher and loader so they cannot create top whitespace */
+  #dev-nav,
+  #rk-loader {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .page { display: none !important; }
+  .page.visible {
+    display: block !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Sticky header */
+  .site-nav {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 99999 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    transform: none !important;
+  }
+
+  .nav-inner { gap: 20px; }
+  .nav-links { display: flex; align-items: center; justify-content: center; gap: 26px; flex-wrap: wrap; }
+  .nav-links .nav-link, .nav-links .nav-sub-link { white-space: nowrap; }
+
+  @media (max-width: 980px) {
+    .nav-links { gap: 14px; font-size: 13px; }
+  }
+
+
+  /* Final fix: no top gap + always visible sticky header */
+  body::before, html::before { content: none !important; display: none !important; }
+  body {
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+  }
+  .site-nav,
+  .page.visible > .site-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 2147483647 !important;
+    transform: translate3d(0,0,0) !important;
+    will-change: transform !important;
+  }
+  .site-nav.is-hidden,
+  .site-nav.nav-hidden,
+  .site-nav.hidden {
+    transform: translate3d(0,0,0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  #pg-home, .page.visible {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .site-nav + section,
+  .site-nav + .hero-v2,
+  .page.visible > .hero-v2:first-of-type,
+  .page.visible > section:first-of-type {
+    margin-top: 0 !important;
+  }
+  .nav-links a.active {
+    color: #fff !important;
+  }
+
+</style>
+
+<style id="rk-logo-home-fix">
+  html, body { margin: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; }
+  .nav-logo a { color: inherit !important; text-decoration: none !important; cursor: pointer !important; }
+  .nav-logo a:hover { opacity: 0.85; }
+  .nav-links .nav-link.active { outline: none; }
+</style>
+
+<style id="temporary-subscription-and-metric-fix">
+  /* Temporarily hide Creative Subscription from top navigation/header and mobile drawer */
+  .site-nav .nav-sub-link,
+  .nav-drawer .nav-sub-link {
+    display: none !important;
+  }
+
+  /* Keep metric plus signs beside the numbers */
+  .metrics-tile .metric {
+    white-space: nowrap !important;
+  }
+  .metrics-tile .metric-num {
+    display: inline-block !important;
+    vertical-align: baseline !important;
+    line-height: 0.95 !important;
+  }
+  .metrics-tile .metric-suffix {
+    display: inline-block !important;
+    vertical-align: super !important;
+    margin-left: 4px !important;
+    line-height: 1 !important;
+    position: relative !important;
+    top: -0.15em !important;
+  }
+  .metrics-tile .metric-label {
+    white-space: normal !important;
+  }
+</style>
+
+<style id="subscription-plan-detail-fix">
+  .subscription-extra-details {
+    margin-top: 72px;
+  }
+  .plan-kicker {
+    color: rgba(18, 13, 64, 0.62);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .plan-price {
+    letter-spacing: -0.04em;
+  }
+  .plan-card .plan-features li strong {
+    color: inherit;
+  }
+  .compare-note {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: rgba(18, 13, 64, 0.62);
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .plan-comparison-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(18, 13, 64, 0.12);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 18px 45px rgba(18, 13, 64, 0.08);
+  }
+  .plan-comparison {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+    color: #171238;
+    font-size: 15px;
+  }
+  .plan-comparison th,
+  .plan-comparison td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(18, 13, 64, 0.10);
+    border-right: 1px solid rgba(18, 13, 64, 0.08);
+    text-align: left;
+    vertical-align: top;
+  }
+  .plan-comparison th:last-child,
+  .plan-comparison td:last-child {
+    border-right: 0;
+  }
+  .plan-comparison tr:last-child td {
+    border-bottom: 0;
+  }
+  .plan-comparison thead th {
+    background: #f6f3ff;
+    color: #171238;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .plan-comparison tbody th {
+    font-weight: 800;
+    background: #faf9ff;
+    width: 210px;
+  }
+  .plan-comparison tbody tr:nth-child(even) td,
+  .plan-comparison tbody tr:nth-child(even) th {
+    background: #f8fbff;
+  }
+  @media (max-width: 768px) {
+    .subscription-extra-details { margin-top: 48px; }
+    .plan-comparison { font-size: 14px; }
+  }
+</style>
+
+<style id="subscription-controls-and-table-fit">
+  /* Subscription controls */
+  .subscription-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: -18px 0 42px;
+  }
+  .subscription-control-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid rgba(18, 13, 64, 0.10);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(18, 13, 64, 0.06);
+  }
+  .subscription-toggle-btn {
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: transparent;
+    color: rgba(18, 13, 64, 0.62);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .subscription-toggle-btn.is-active {
+    background: #171238;
+    color: #fff;
+  }
+  .subscription-save-note {
+    color: rgba(18, 13, 64, 0.62);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .plan-price .plan-amount {
+    display: inline-block;
+  }
+
+  /* Fit comparison table in one view without horizontal scrolling/cropping */
+  .subscription-extra-details .container,
+  .subscription-extra-details {
+    width: 100%;
+  }
+  .plan-comparison-wrap {
+    overflow-x: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .plan-comparison {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+    font-size: clamp(11px, 0.92vw, 13.5px) !important;
+    line-height: 1.35 !important;
+  }
+  .plan-comparison th,
+  .plan-comparison td {
+    padding: 10px 10px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+  }
+  .plan-comparison thead th {
+    white-space: normal !important;
+  }
+  .plan-comparison thead th:nth-child(1),
+  .plan-comparison tbody th {
+    width: 22% !important;
+  }
+  .plan-comparison thead th:nth-child(2) { width: 15% !important; }
+  .plan-comparison thead th:nth-child(3) { width: 20% !important; }
+  .plan-comparison thead th:nth-child(4) { width: 20% !important; }
+  .plan-comparison thead th:nth-child(5) { width: 23% !important; }
+
+  @media (max-width: 780px) {
+    .subscription-controls { gap: 12px; margin-top: 0; }
+    .subscription-toggle-btn { padding: 9px 14px; font-size: 13px; }
+    .plan-comparison { font-size: 10.5px !important; }
+    .plan-comparison th, .plan-comparison td { padding: 8px 6px !important; }
+  }
+</style>
+
+
+<style id="subscription-focus-toggle-update">
+  /* Cleaner switch-style controls */
+  .subscription-controls {
+    gap: 22px !important;
+    margin: -10px 0 58px !important;
+  }
+  .subscription-control-group {
+    position: relative !important;
+    display: inline-grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    min-width: 250px !important;
+    padding: 5px !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(18, 13, 64, 0.12) !important;
+    box-shadow: 0 16px 38px rgba(18, 13, 64, 0.08) !important;
+    overflow: hidden !important;
+  }
+  .subscription-control-group::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    border-radius: 999px;
+    background: #171238;
+    box-shadow: 0 10px 22px rgba(18, 13, 64, 0.22);
+    transition: transform 0.24s ease;
+    z-index: 0;
+  }
+  .subscription-control-group.is-second-active::before {
+    transform: translateX(100%);
+  }
+  .subscription-toggle-btn {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    padding: 13px 20px !important;
+    background: transparent !important;
+    color: rgba(18, 13, 64, 0.68) !important;
+    border-radius: 999px !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+  }
+  .subscription-toggle-btn.is-active {
+    background: transparent !important;
+    color: #ffffff !important;
+  }
+  .subscription-save-note {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: -6px;
+  }
+
+  /* Make the middle plan the clear focus, with smaller side cards */
+  #pg-subscription .plan-grid {
+    display: grid !important;
+    grid-template-columns: minmax(220px, 0.92fr) minmax(280px, 1.16fr) minmax(220px, 0.92fr) !important;
+    align-items: center !important;
+    gap: 34px !important;
+    max-width: 1180px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  #pg-subscription .plan-card {
+    min-height: auto !important;
+    padding: 44px 38px !important;
+    border-radius: 28px !important;
+    transform: scale(0.94) !important;
+    opacity: 0.96;
+  }
+  #pg-subscription .plan-card:not(.plan-featured) {
+    margin-top: 28px !important;
+  }
+  #pg-subscription .plan-card.plan-featured {
+    transform: scale(1.08) !important;
+    z-index: 2 !important;
+    padding: 52px 44px !important;
+    box-shadow: 0 34px 70px rgba(18, 13, 64, 0.22) !important;
+  }
+  #pg-subscription .plan-featured .plan-name {
+    font-size: clamp(28px, 2.2vw, 36px) !important;
+    line-height: 1.18 !important;
+  }
+  #pg-subscription .plan-featured .plan-price {
+    font-size: clamp(50px, 4.2vw, 72px) !important;
+  }
+  #pg-subscription .plan-card:not(.plan-featured) .plan-name {
+    font-size: clamp(24px, 1.7vw, 30px) !important;
+  }
+  #pg-subscription .plan-card:not(.plan-featured) .plan-price {
+    font-size: clamp(42px, 3vw, 54px) !important;
+  }
+
+  @media (max-width: 980px) {
+    #pg-subscription .plan-grid {
+      grid-template-columns: 1fr !important;
+      max-width: 560px !important;
+    }
+    #pg-subscription .plan-card,
+    #pg-subscription .plan-card.plan-featured {
+      transform: none !important;
+      margin-top: 0 !important;
+    }
+    .subscription-control-group { min-width: 220px !important; }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ── CUSTOM CURSOR ── -->
+<div id="rk-cursor"></div>
+<div id="rk-cursor-outer"></div>
+<!-- ── PAGE LOADER ── -->
+<div id="rk-loader"><span class="rk-loader-text">loading</span></div>
+
+
+
+<!-- ════════════════════════════════
+     PAGE 1: HOME
+════════════════════════════════ -->
+<div class="page visible" id="pg-home">
+
+  <nav class="site-nav" id="nav-home">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+      <a href="#" class="btn-pill nav-cta" onclick="showPage('contact');return false;">Hire Me</a>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="nav-drawer-home">
+    <a href="#" class="nav-drawer-link" onclick="showPage('home');closeDrawer('home');return false;">Home</a>
+    <a href="#" class="nav-drawer-link" onclick="showPage('case-studies');closeDrawer('home');return false;">Case Studies</a>
+    <a href="#" class="nav-drawer-link" onclick="showPage('work-gallery');closeDrawer('home');return false;">Work Gallery</a>
+    <a href="#" class="nav-drawer-link" onclick="showPage('creative-leadership');closeDrawer('home');return false;">Leadership</a>
+    <a href="#" class="nav-drawer-link" onclick="showPage('experience');closeDrawer('home');return false;">Experience</a>
+    <a href="#" class="nav-drawer-link" onclick="showPage('about');closeDrawer('home');return false;">About</a>
+    <a href="#" class="btn-pill" onclick="showPage('contact');closeDrawer('home');return false;">Hire Me</a>
+    <a href="#" class="nav-sub-link" onclick="showPage('subscription');closeDrawer('home');return false;">Creative Subscription ↗</a>
+  </div>
+
+  <!-- ════════════════════════════════
+       HERO — FIGMA-ALIGNED FIRST FOLD
+       ════════════════════════════════ -->
+
+  <section class="hero-v2" id="hero-v2">
+
+    <!-- LEFT: Portrait + Social -->
+    <div class="hero-v2__left">
+      <div class="hero-v2__portrait" id="hero-v2-portrait">
+        <!-- Replace with real photo: object-fit cover, grayscale -->
+        <div class="hero-v2__photo-placeholder"></div>
+      </div>
+      <ul class="hero-v2__social" id="hero-v2-social">
+        <li><a href="https://linkedin.com/in/mrkumaar" target="_blank" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a></li>
+        <li><a href="mailto:info.riteshkumaar@gmail.com" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a></li>
+        <li><a href="https://riteshkumaar.in" target="_blank" title="Portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="hero-v2__right">
+      <div class="hero-v2__body">
+
+        <!-- Content column: headline · sub · stats · CTAs · plans -->
+        <div class="hero-v2__main-col">
+
+          <div class="hero-v2__headline">
+            <div class="hero-v2__word-wrap">
+              <span class="hero-v2__word" id="hero-word-1">Hi, This is Mr. Kumaar</span>
+            </div>
+            <div class="hero-v2__word-wrap">
+              <span class="hero-v2__word hero-v2__word--role" id="hero-word-2">AI Creative · Design Lead</span>
+            </div>
+          </div>
+
+          <p class="hero-v2__sub" id="hero-tagline">Noida-based Creative &amp; Product Design Lead with 9+ years transforming SaaS brands through AI-augmented design, motion, and GTM strategy.</p>
+
+          <div class="hero-v2__stats" id="hero-v2-status">
+            <div class="hero-v2__stat">
+              <span class="hero-v2__stat-num">09</span>
+              <span class="hero-v2__stat-label">Years<br>of Experience</span>
+            </div>
+            <div class="hero-v2__stat">
+              <span class="hero-v2__stat-num">45+</span>
+              <span class="hero-v2__stat-label">Clients<br>Worldwide</span>
+            </div>
+          </div>
+
+          <div class="hero-v2__cta-row">
+            <a href="https://linkedin.com/in/mrkumaar" target="_blank" class="hero-v2__btn hero-v2__btn--primary">Download My CV</a>
+            <a href="#" class="hero-v2__btn hero-v2__btn--secondary" onclick="showPage('contact');return false;">Hire me</a>
+            <button class="hero-v2__play" aria-label="Watch showreel">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="6,3 20,12 6,21"/></svg>
+            </button>
+          </div>
+
+          <div class="hero-v2__plans-label">
+            <a href="#" onclick="showPage('subscription');return false;">
+              <span class="hero-v2__plans-title">Plans &amp; Perks</span>
+              <span class="hero-v2__plans-sub">Crafted for You</span>
+              <svg class="hero-v2__plans-arrow" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 6H2"/><path d="M8 2 2 6l6 4"/></svg>
+            </a>
+          </div>
+
+        </div><!-- /main-col -->
+
+        <!-- Nav column: 2×2 grid -->
+        <nav class="hero-v2__nav-col" id="hero-v2-nav">
+          <div class="hero-v2__nav-grid">
+
+            <!-- About me — top-left card: TL TR BL rounded, BR square -->
+            <a href="#" class="hero-v2__ncard hero-v2__ncard--tl" onclick="showPage('about');return false;">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.87 3.13-7 7-7s7 3.13 7 7"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">About me</span>
+              <span class="hero-v2__ncard-sub">Who Am I</span>
+            </a>
+
+            <!-- Portfolio info — top-right (text cell, no card shape) -->
+            <div class="hero-v2__nav-info" onclick="showPage('work-gallery')" role="button">
+              <span class="hero-v2__nav-info-label">Portfolio</span>
+              <span class="hero-v2__nav-info-sub">Discover my latest<br>creative projects.</span>
+              <svg class="hero-v2__nav-info-arrow" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h32"/><path d="M28 2l6 4-6 4"/></svg>
+            </div>
+
+            <!-- Services — bottom-left card: TL BL BR rounded, TR square -->
+            <a href="#" class="hero-v2__ncard hero-v2__ncard--bl" onclick="showPage('subscription');return false;">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">Services</span>
+              <span class="hero-v2__ncard-sub">Crafted Solutions</span>
+            </a>
+
+            <!-- Skills & Experience — bottom-right card: TR BL BR rounded, TL square -->
+            <a href="#" class="hero-v2__ncard hero-v2__ncard--br" onclick="showPage('experience');return false;">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">Skills &amp; Exp</span>
+              <span class="hero-v2__ncard-sub">My previous Story</span>
+            </a>
+
+          </div>
+        </nav><!-- /nav-col -->
+
+      </div><!-- /body -->
+    </div><!-- /right -->
+
+  </section>
+
+  <!-- Marquee strip -->
+  <div class="hero-v2__marquee">
+    <div class="hero-v2__marquee-track">
+      <span>info.riteshkumaar@gmail.com</span><span class="msep">·</span>
+      <span>AI Creative &amp; Product Design Lead</span><span class="msep">·</span>
+      <span>Salesforce AppExchange &amp; SaaS GTM</span><span class="msep">·</span>
+      <span>Noida / Delhi NCR &nbsp;·&nbsp; Open to Remote</span><span class="msep">·</span>
+      <span>info.riteshkumaar@gmail.com</span><span class="msep">·</span>
+      <span>AI Creative &amp; Product Design Lead</span><span class="msep">·</span>
+      <span>Salesforce AppExchange &amp; SaaS GTM</span><span class="msep">·</span>
+      <span>Noida / Delhi NCR &nbsp;·&nbsp; Open to Remote</span><span class="msep">·</span>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <span class="trust-label">Industries worked across</span>
+        <div class="trust-divider"></div>
+        <div class="trust-pills">
+          <span class="trust-pill">Salesforce ISV</span>
+          <span class="trust-pill">B2B SaaS</span>
+          <span class="trust-pill">IT Services</span>
+          <span class="trust-pill">FMCG / Retail</span>
+          <span class="trust-pill">E-commerce</span>
+          <span class="trust-pill">Healthcare</span>
+          <span class="trust-pill">Finance</span>
+          <span class="trust-pill">Real Estate</span>
+          <span class="trust-pill">Education</span>
+          <span class="trust-pill">Startups</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS — light tile -->
+  <section class="tile-light metrics-tile">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric reveal">
+          <span class="metric-num" data-target="11">0</span><span class="metric-suffix">+</span>
+          <div class="metric-label">Years of Experience</div>
+        </div>
+        <div class="metric reveal reveal-delay-1">
+          <span class="metric-num" data-target="45">0</span><span class="metric-suffix">+</span>
+          <div class="metric-label">Clients &amp; Brands Served</div>
+        </div>
+        <div class="metric reveal reveal-delay-2">
+          <span class="metric-num" data-target="200">0</span><span class="metric-suffix">+</span>
+          <div class="metric-label">Creative Assets Delivered</div>
+        </div>
+        <div class="metric reveal reveal-delay-3">
+          <span class="metric-num" data-target="8">0</span><span class="metric-suffix">+</span>
+          <div class="metric-label">Industries Worked Across</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CASE STUDIES — parchment tile -->
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Selected Work</div>
+        <h2 class="display-h2">Work That Shows Strategy + Execution</h2>
+        <p class="section-body">A curated mix of motion, campaign, web, and brand projects — presented as creative case studies, not just final outputs.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="cs-card reveal">
+          <div class="cs-card-img visual-block visual-motion">
+            <div class="visual-inner"><div class="visual-label">Motion Campaign</div></div>
+          </div>
+          <div class="cs-card-body">
+            <div class="cs-type">Motion Campaign</div>
+            <h3 class="cs-title">B2B Product Launch Video Campaign</h3>
+            <p class="cs-desc">Built a short-form motion campaign to simplify product messaging and drive social engagement.</p>
+            <div class="tag-row">
+              <span class="tag">Creative Direction</span>
+              <span class="tag">Storyboard</span>
+              <span class="tag">Motion Design</span>
+            </div>
+            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+        <div class="cs-card reveal reveal-delay-1">
+          <div class="cs-card-img visual-block visual-web">
+            <div class="visual-inner"><div class="visual-label">Landing Page</div></div>
+          </div>
+          <div class="cs-card-body">
+            <div class="cs-type">Website / Landing Page</div>
+            <h3 class="cs-title">Digital Landing Page Experience</h3>
+            <p class="cs-desc">Designed a conversion-focused landing page with clear visual hierarchy and responsive design direction.</p>
+            <div class="tag-row">
+              <span class="tag">UI Direction</span>
+              <span class="tag">Layout Strategy</span>
+              <span class="tag">Visual Design</span>
+            </div>
+            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+        <div class="cs-card reveal reveal-delay-2">
+          <div class="cs-card-img visual-block visual-brand">
+            <div class="visual-inner"><div class="visual-label">Brand System</div></div>
+          </div>
+          <div class="cs-card-body">
+            <div class="cs-type">Brand + Social System</div>
+            <h3 class="cs-title">Social Media Creative System</h3>
+            <p class="cs-desc">Created scalable social assets — statics, carousels, GIFs, and video creatives under one visual direction.</p>
+            <div class="tag-row">
+              <span class="tag">Art Direction</span>
+              <span class="tag">Design System</span>
+              <span class="tag">Social Campaign</span>
+            </div>
+            <a href="#" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="#" class="btn-pill-outline" onclick="showPage('case-studies');return false;">View All Case Studies →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES — dark tile -->
+  <section class="tile-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow eyebrow-light">Creative Capabilities</div>
+        <h2 class="display-h2 on-dark">What I Bring as a Creative Leader</h2>
+        <p class="section-body on-dark">My focus is on translating business goals into creative systems — from concept and direction to execution and quality review.</p>
+      </div>
+      <div class="card-grid-4">
+        <div class="cap-card reveal">
+          <div class="cap-icon">🖥️</div>
+          <h3 class="cap-title">AI &amp; Product Design</h3>
+          <p class="cap-desc">UI/UX strategy, Figma design systems (75+ components), interaction design, onboarding flows, CRO-informed landing pages.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-1">
+          <div class="cap-icon">🎬</div>
+          <h3 class="cap-title">Motion &amp; AI Video</h3>
+          <p class="cap-desc">After Effects, Synthesia, Sora, KlingAI, AI voiceovers (ElevenLabs) — SaaS demos, product explainers, social reels, GIFs.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-2">
+          <div class="cap-icon">🚀</div>
+          <h3 class="cap-title">SaaS GTM &amp; AppExchange</h3>
+          <p class="cap-desc">AppExchange listing optimization, GTM campaign design, partner co-marketing, event branding, brand systems for SaaS products.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-3">
+          <div class="cap-icon">⚙️</div>
+          <h3 class="cap-title">DesignOps &amp; Leadership</h3>
+          <p class="cap-desc">Team management, creative QA, stakeholder alignment, structured handoffs — reduced feedback rounds from 5 to 2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SNAPSHOT — light tile -->
+  <section class="tile-light">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Work Snapshot</div>
+        <h2 class="display-h2">Work Across Motion, Social, Web &amp; Brand</h2>
+        <p class="section-body">Selected creative outputs across formats. Detailed thinking and process inside case studies.</p>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Motion</button>
+        <button class="filter-tab">Social</button>
+        <button class="filter-tab">Web</button>
+        <button class="filter-tab">Branding</button>
+        <button class="filter-tab">GIFs</button>
+      </div>
+      <div class="gallery-grid-3">
+        <div class="gallery-item reveal"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Motion Video</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Product Campaign Video</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Social Post</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social</span><div class="gallery-name">B2B Social Campaign</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2"><div class="visual-block visual-web gallery-thumb"><div class="visual-inner"><div class="visual-label">Landing Page</div></div></div><div class="gallery-meta"><span class="gallery-tag">Web</span><div class="gallery-name">Landing Page Design</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo System</div></div></div><div class="gallery-meta"><span class="gallery-tag">Branding</span><div class="gallery-name">Brand Identity System</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF Animation</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF</span><div class="gallery-name">Animated Campaign GIF</div></div></div>
+        <div class="gallery-item reveal reveal-delay-3"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Campaign Visual</div></div></div><div class="gallery-meta"><span class="gallery-tag">Campaign</span><div class="gallery-name">Digital Campaign System</div></div></div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="#" class="btn-pill-outline" onclick="showPage('work-gallery');return false;">Explore Work Gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT — parchment tile -->
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Leadership Impact</div>
+        <h2 class="display-h2">Design That Supports Business Goals</h2>
+      </div>
+      <div class="impact-grid reveal">
+        <div class="impact-item"><div class="impact-num">60%</div><div class="impact-desc">Lead generation increase via motion-first SaaS demos and onboarding videos</div></div>
+        <div class="impact-item"><div class="impact-num">38%</div><div class="impact-desc">AppExchange install conversion lift after redesigning 4 product listings</div></div>
+        <div class="impact-item"><div class="impact-num">45%</div><div class="impact-desc">Feature adoption improvement through UX redesign and onboarding flows</div></div>
+        <div class="impact-item"><div class="impact-num">50%</div><div class="impact-desc">Higher conversion rate from CRO-informed landing page revamp across 8 pages</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY QUOTE STRIP -->
+  <section class="testimonial-strip">
+    <div class="container">
+      <div class="testimonial-quote reveal">
+        <span class="testimonial-mark">"</span>
+        <p class="testimonial-text">I don't just design assets — I build Figma systems, lead AI-augmented workflows, and help SaaS teams communicate product value that converts and drives measurable pipeline growth.</p>
+        <div class="testimonial-attr">— Ritesh Kumaar · <strong>AI-Augmented Creative &amp; Product Design Lead</strong> · 11+ Years · Salesforce AppExchange &amp; SaaS GTM</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS — dark tile -->
+  <section class="tile-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow eyebrow-light">How I Work</div>
+        <h2 class="display-h2 on-dark">My Creative Process</h2>
+        <p class="section-body on-dark">From brief to final output — a structured approach to creative direction and campaign execution.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal"><div class="step-num">01</div><h3 class="step-title">Understand the Goal</h3><p class="step-desc">Define audience, platform, message, and business objective before any visual work begins.</p></div>
+        <div class="process-step reveal reveal-delay-1"><div class="step-num">02</div><h3 class="step-title">Build the Direction</h3><p class="step-desc">Create moodboards, visual references, and campaign structure to align team direction.</p></div>
+        <div class="process-step reveal reveal-delay-2"><div class="step-num">03</div><h3 class="step-title">Plan the Story</h3><p class="step-desc">Develop wireframes, artboards, storyboards, and content flow to map execution.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-num">04</div><h3 class="step-title">Execute the System</h3><p class="step-desc">Design and animate assets across required platforms, formats, and brand guidelines.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-num">05</div><h3 class="step-title">Review &amp; Scale</h3><p class="step-desc">Refine quality, adapt assets, maintain brand consistency across the full campaign.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL PATH — light tile -->
+  <section class="tile-light">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <div class="eyebrow">Two Ways to Work Together</div>
+        <h2 class="display-h2">How Can I Help You?</h2>
+      </div>
+      <div class="path-grid">
+        <div class="path-card reveal">
+          <div class="path-icon">🏢</div>
+          <h3 class="path-title">Looking to Hire?</h3>
+          <p class="path-desc">Explore my experience, leadership approach, selected case studies, and resume for Creative Manager / Art Director / Motion Design Lead roles.</p>
+          <a href="#" class="btn-pill" onclick="showPage('experience');return false;">View Experience</a>
+          <a href="#" class="btn-pill-outline" onclick="showPage('case-studies');return false;">View Case Studies</a>
+        </div>
+        <div class="path-card path-card-secondary reveal reveal-delay-1">
+          <div class="path-icon">🤝</div>
+          <h3 class="path-title">Need Creative Support?</h3>
+          <p class="path-desc">I offer structured creative partnership models for brands needing consistent design, motion, and campaign support on a monthly retainer basis.</p>
+          <a href="#" class="btn-pill-ghost" onclick="showPage('subscription');return false;">View Creative Subscription →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — dark tile -->
+  <section class="tile-dark cta-tile">
+    <div class="container text-center reveal">
+      <h2 class="display-h2 on-dark">Let's Build Creative Work That Moves People<br>and Supports Business Growth</h2>
+      <p class="section-body on-dark" style="margin-bottom:40px;">Available for senior creative leadership roles across motion, brand, campaigns, and digital design.</p>
+      <div class="cta-row cta-row-center">
+        <a href="#" class="btn-pill" onclick="showPage('case-studies');return false;">View Case Studies</a>
+        <a href="#" class="btn-pill-outline-light">Download Resume</a>
+        <a href="#" class="btn-pill-outline-light" onclick="showPage('contact');return false;">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Ritesh Kumaar</div>
+        <div class="footer-tagline">Creative Design Leader · Noida / Delhi NCR, India</div>
+      </div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" onclick="showPage('about');return false;">About</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="footer-accent" onclick="showPage('subscription');return false;">Creative Subscription</a>
+      </div>
+      <div class="footer-social">
+        <div style="margin-bottom:4px;">linkedin.com/in/mrkumaar · riteshkumaar.in</div>
+        <div>info.riteshkumaar@gmail.com · +91-72100 15010</div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-home -->
+
+
+<!-- ════════════════════════════════
+     PAGE 2: CASE STUDIES
+════════════════════════════════ -->
+<div class="page" id="pg-case-studies">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-dark page-hero">
+    <div class="container reveal">
+      <div class="eyebrow eyebrow-light">Creative Case Studies</div>
+      <h1 class="display-h1 on-dark">From Strategy to Execution</h1>
+      <p class="section-body on-dark">4 to 6 detailed case studies showing business goals, creative direction, execution, and impact — not just final outputs.</p>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <!-- CS 1 -->
+      <div class="cs-full-card reveal">
+        <div class="cs-full-grid">
+          <div class="cs-full-media">
+            <div class="visual-block visual-motion cs-hero-img"><div class="visual-inner"><div class="visual-label">Case Study Hero</div></div></div>
+            <div class="cs-frames">
+              <div class="visual-block visual-motion cs-frame"><div class="visual-inner"><div class="visual-label">Frame 1</div></div></div>
+              <div class="visual-block visual-social cs-frame"><div class="visual-inner"><div class="visual-label">Frame 2</div></div></div>
+              <div class="visual-block visual-brand cs-frame"><div class="visual-inner"><div class="visual-label">Frame 3</div></div></div>
+            </div>
+          </div>
+          <div class="cs-full-info">
+            <div class="cs-type">Case Study 01 — Motion Campaign</div>
+            <h2 class="cs-h2">B2B Product Launch Video Campaign</h2>
+            <div class="cs-meta-grid">
+              <div><div class="cs-meta-label">Business Goal</div><div class="cs-meta-val">Communicate B2B product value in short-form video for social media</div></div>
+              <div><div class="cs-meta-label">My Role</div><div class="cs-meta-val">Creative Direction, Storyboard, Motion Design, Final Execution</div></div>
+              <div><div class="cs-meta-label">Platform</div><div class="cs-meta-val">LinkedIn, Instagram Reels, YouTube Shorts</div></div>
+              <div><div class="cs-meta-label">Tools</div><div class="cs-meta-val">After Effects, Illustrator, Premiere Pro</div></div>
+            </div>
+            <p class="cs-desc">Built a motion campaign to translate product messaging into a clear, fast, and visually engaging animated video for digital audiences. Includes storyboard, scene breakdown, motion direction, and final output.</p>
+            <div class="tag-row"><span class="tag">Storyboard</span><span class="tag">Motion</span><span class="tag">B2B</span><span class="tag">Social Video</span></div>
+            <a href="#" class="btn-pill">View Full Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <!-- CS 2 -->
+      <div class="cs-full-card reveal">
+        <div class="cs-full-grid">
+          <div class="cs-full-media">
+            <div class="visual-block visual-web cs-hero-img"><div class="visual-inner"><div class="visual-label">Landing Page Hero</div></div></div>
+          </div>
+          <div class="cs-full-info">
+            <div class="cs-type">Case Study 02 — Website / Landing Page</div>
+            <h2 class="cs-h2">Digital Landing Page Experience</h2>
+            <div class="cs-meta-grid">
+              <div><div class="cs-meta-label">Business Goal</div><div class="cs-meta-val">Convert traffic through clear visual hierarchy and campaign alignment</div></div>
+              <div><div class="cs-meta-label">My Role</div><div class="cs-meta-val">UI Direction, Layout Strategy, Visual Design, Responsive Direction</div></div>
+            </div>
+            <p class="cs-desc">Conversion-focused landing page with above-fold strategy, CTA placement, desktop/mobile design system, and brand consistency across campaign assets.</p>
+            <div class="tag-row"><span class="tag">UX Direction</span><span class="tag">Web Design</span><span class="tag">CRO</span><span class="tag">Responsive</span></div>
+            <a href="#" class="btn-pill">View Full Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <!-- CS 3 -->
+      <div class="cs-full-card reveal">
+        <div class="cs-full-grid">
+          <div class="cs-full-media">
+            <div class="visual-block visual-social cs-hero-img"><div class="visual-inner"><div class="visual-label">Social Media System</div></div></div>
+          </div>
+          <div class="cs-full-info">
+            <div class="cs-type">Case Study 03 — Brand + Social System</div>
+            <h2 class="cs-h2">Social Media Creative System</h2>
+            <div class="cs-meta-grid">
+              <div><div class="cs-meta-label">Business Goal</div><div class="cs-meta-val">Scalable social campaign system for consistent multi-platform publishing</div></div>
+              <div><div class="cs-meta-label">My Role</div><div class="cs-meta-val">Art Direction, Design System, Team Guidance, Campaign Delivery</div></div>
+            </div>
+            <p class="cs-desc">Developed a complete social creative system: static posts, carousels, GIFs, and short-form videos across Instagram, LinkedIn, and Twitter with one consistent visual language.</p>
+            <div class="tag-row"><span class="tag">Art Direction</span><span class="tag">Design System</span><span class="tag">Social Campaign</span></div>
+            <a href="#" class="btn-pill">View Full Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <!-- CS 4 -->
+      <div class="cs-full-card reveal">
+        <div class="cs-full-grid">
+          <div class="cs-full-media">
+            <div class="visual-block visual-brand cs-hero-img"><div class="visual-inner"><div class="visual-label">Brand Identity</div></div></div>
+          </div>
+          <div class="cs-full-info">
+            <div class="cs-type">Case Study 04 — Brand Identity</div>
+            <h2 class="cs-h2">Brand Identity &amp; Logo System</h2>
+            <div class="cs-meta-grid">
+              <div><div class="cs-meta-label">Business Goal</div><div class="cs-meta-val">Build a distinctive brand identity for digital and print applications</div></div>
+              <div><div class="cs-meta-label">My Role</div><div class="cs-meta-val">Brand Concept, Logo Design, Typography System, Brand Guidelines</div></div>
+            </div>
+            <p class="cs-desc">Logo concept, variations, grid construction, typography pairing, color palette, usage rules, and digital/print brand application across platforms.</p>
+            <div class="tag-row"><span class="tag">Logo Design</span><span class="tag">Brand System</span><span class="tag">Typography</span></div>
+            <a href="#" class="btn-pill">View Full Case Study →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('home');return false;">Home</a>
+        <a href="#" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="footer-accent" onclick="showPage('subscription');return false;">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-case-studies -->
+
+
+<!-- ════════════════════════════════
+     PAGE 3: WORK GALLERY
+════════════════════════════════ -->
+<div class="page" id="pg-work-gallery">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-dark page-hero">
+    <div class="container reveal">
+      <div class="eyebrow eyebrow-light">Work Gallery</div>
+      <h1 class="display-h1 on-dark">Creative Outputs Across Formats</h1>
+      <p class="section-body on-dark">A full view of motion, social, web, logo, and campaign work. Filter by format or browse all.</p>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Static</button>
+        <button class="filter-tab">Carousel</button>
+        <button class="filter-tab">Video</button>
+        <button class="filter-tab">Logos</button>
+        <button class="filter-tab">Favourites</button>
+        <button class="filter-tab">Case Study</button>
+      </div>
+
+      <div class="gallery-section reveal">
+        <h3 class="gallery-section-title">Motion Video</h3>
+        <div class="gallery-grid-3">
+          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 1 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Product Launch Campaign Video</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 2 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Social Media Reel</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-motion gallery-thumb-lg"><div class="visual-inner"><div class="visual-label">Video Thumbnail 3 ▶</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion · 2023</span><div class="gallery-name">Brand Explainer</div></div></div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal">
+        <h3 class="gallery-section-title">Social Media Posts</h3>
+        <div class="gallery-grid-4">
+          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Campaign Post</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · LinkedIn</span><div class="gallery-name">B2B Campaign</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Product Feature</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Static Post 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social · Twitter</span><div class="gallery-name">Promotional</div></div></div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal">
+        <h3 class="gallery-section-title">GIF Animations</h3>
+        <div class="gallery-grid-3">
+          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 1 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Campaign Animation</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 2 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Feature Highlight</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF 3 — Animated</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Social Asset</div></div></div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal">
+        <h3 class="gallery-section-title">Logo &amp; Brand</h3>
+        <div class="gallery-grid-4">
+          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 1</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand Identity</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 2</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Brand System</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 3</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Visual Identity</div></div></div>
+          <div class="gallery-item"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo 4</div></div></div><div class="gallery-meta"><span class="gallery-tag">Logo</span><div class="gallery-name">Mark Design</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="footer-accent" onclick="showPage('subscription');return false;">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-work-gallery -->
+
+
+<!-- ════════════════════════════════
+     PAGE 4: CREATIVE LEADERSHIP
+════════════════════════════════ -->
+<div class="page" id="pg-creative-leadership">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-dark page-hero">
+    <div class="container reveal">
+      <div class="eyebrow eyebrow-light">Creative Leadership</div>
+      <h1 class="display-h1 on-dark">How I Lead Creative Projects</h1>
+      <p class="section-body on-dark">My approach goes beyond individual execution. I build creative systems, guide teams, manage quality, and ensure that every asset serves the business goal.</p>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="split-grid reveal">
+        <div>
+          <div class="eyebrow">Approach</div>
+          <h2 class="display-h2">Lead First. Execute When Needed.</h2>
+          <p class="section-body" style="margin-bottom:32px;">With 11+ years in creative roles, I've evolved from executing individual assets to leading entire creative campaigns from strategy to delivery.</p>
+          <div class="ldr-list">
+            <div class="ldr-item"><div class="ldr-icon">📋</div><div><h3 class="ldr-title">Campaign Planning</h3><p class="ldr-desc">I translate briefs into structured creative plans — defining messaging architecture, visual direction, and delivery sequence before any execution begins.</p></div></div>
+            <div class="ldr-item"><div class="ldr-icon">🎨</div><div><h3 class="ldr-title">Creative Direction</h3><p class="ldr-desc">I set the visual tone through moodboards, storyboards, and reference systems so the entire team works toward one coherent creative vision.</p></div></div>
+            <div class="ldr-item"><div class="ldr-icon">✅</div><div><h3 class="ldr-title">Quality Review</h3><p class="ldr-desc">I review outputs at every stage — checking brand consistency, message clarity, and platform optimization before anything is published.</p></div></div>
+            <div class="ldr-item"><div class="ldr-icon">⚡</div><div><h3 class="ldr-title">Hands-On Execution</h3><p class="ldr-desc">When timelines are tight or team capacity is stretched, I step in directly — designing, animating, or editing to maintain delivery quality.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="visual-block visual-motion ldr-visual"><div class="visual-inner"><div class="visual-label">Process Diagram / Moodboard</div><div class="visual-hint">560 × 380</div></div></div>
+          <div class="visual-block visual-brand ldr-visual-sm"><div class="visual-inner"><div class="visual-label">Storyboard Example</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Team Management</div>
+        <h2 class="display-h2">Guiding Teams and Building Creative Capability</h2>
+      </div>
+      <div class="card-grid-3">
+        <div class="util-card reveal"><div class="util-icon">👨‍🏫</div><h3 class="util-title">Mentoring Designers</h3><p class="util-desc">I help junior and mid-level designers improve their visual thinking, craft, and campaign understanding — not just review their outputs.</p></div>
+        <div class="util-card reveal reveal-delay-1"><div class="util-icon">🔄</div><h3 class="util-title">Cross-functional Work</h3><p class="util-desc">I work closely with marketing, product, and business teams — aligning creative output with campaign objectives and business timelines.</p></div>
+        <div class="util-card reveal reveal-delay-2"><div class="util-icon">📊</div><h3 class="util-title">Delivery Management</h3><p class="util-desc">I manage creative timelines, review cycles, and delivery milestones to ensure campaigns launch on time with full quality control.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow eyebrow-light">Pre-Production Process</div>
+        <h2 class="display-h2 on-dark">From Idea to Storyboard to Execution</h2>
+        <p class="section-body on-dark">Before any animation or design begins, I map the creative structure through storyboards, artboards, and visual planning documents.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="pre-prod-item reveal"><div class="visual-block visual-motion pre-prod-img"><div class="visual-inner"><div class="visual-label">Moodboard</div></div></div><h3 class="pre-prod-title on-dark">01. Moodboard</h3><p class="pre-prod-desc">Visual references, tone, palette, and direction before any design starts.</p></div>
+        <div class="pre-prod-item reveal reveal-delay-1"><div class="visual-block visual-brand pre-prod-img"><div class="visual-inner"><div class="visual-label">Storyboard</div></div></div><h3 class="pre-prod-title on-dark">02. Storyboard / Artboard</h3><p class="pre-prod-desc">Scene-by-scene planning: message, visual, transition, and motion notes per frame.</p></div>
+        <div class="pre-prod-item reveal reveal-delay-2"><div class="visual-block visual-web pre-prod-img"><div class="visual-inner"><div class="visual-label">Final Output</div></div></div><h3 class="pre-prod-title on-dark">03. Final Execution</h3><p class="pre-prod-desc">Produced, reviewed, and delivered — consistent with the original creative direction.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-creative-leadership -->
+
+
+<!-- ════════════════════════════════
+     PAGE 5: EXPERIENCE
+════════════════════════════════ -->
+<div class="page" id="pg-experience">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-dark page-hero">
+    <div class="container exp-hero-grid reveal">
+      <div>
+        <div class="eyebrow eyebrow-light">Career Summary</div>
+        <h1 class="display-h1 on-dark">11+ Years — AI-Augmented Creative &amp; Product Design Lead</h1>
+        <p class="section-body on-dark">Driving Salesforce AppExchange optimization, SaaS GTM design, UI/UX systems, Figma design systems, and AI-assisted motion — with measurable impact on adoption, conversion, and pipeline across 8+ industries.</p>
+        <a href="#" class="btn-pill" style="margin-top:32px;">Download Resume (PDF)</a>
+      </div>
+      <div class="exp-metrics">
+        <div class="exp-metric"><div class="exp-metric-num">11+</div><div class="exp-metric-label">Years Experience</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">45+</div><div class="exp-metric-label">Clients Served</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">60%</div><div class="exp-metric-label">Lead Gen Increase</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">38%</div><div class="exp-metric-label">AppExchange Conversion Lift</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="exp-grid">
+        <div class="reveal">
+          <div class="eyebrow" style="margin-bottom:32px;">Work History</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><div class="tl-date">Jan 2025 — Present</div><div class="tl-company">360 Cloud Technologies, Noida <span style="font-weight:400;opacity:0.7;">(Salesforce ISV Partner)</span></div><div class="tl-role">Assistant Manager – Design | Creative &amp; Product Design Lead</div><p class="tl-desc">Led UI/UX strategy and product design across 4 Salesforce-native SaaS products — interaction design, usability walkthroughs, and Figma prototypes improved feature adoption by 45%. Directed AppExchange listing optimization lifting install conversion by 38% and rating from 3.6 to 4.7. Produced motion-led onboarding sequences using After Effects, Synthesia, Sora, and ElevenLabs — increased lead generation by 60%. Built 75-component Figma design system reducing rework by 20%.</p><div class="tag-row"><span class="tag">AppExchange Optimization</span><span class="tag">SaaS GTM</span><span class="tag">Figma Design System</span><span class="tag">AI Video</span></div></div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><div class="tl-date">Jun 2022 — Jan 2025</div><div class="tl-company">Binmile Technologies, Noida <span style="font-weight:400;opacity:0.7;">(SaaS &amp; IT Services)</span></div><div class="tl-role">Senior Motion Graphics Designer (Acting Design Head)</div><p class="tl-desc">Managed a team of 5 designers as Acting Design Head — built review systems and delivery workflows improving on-time delivery by 30%. Produced motion graphics and product demos contributing to 60% lead generation increase. Built reusable Figma design systems standardizing output across 6 product lines — cut production rework by 25%. Mentored 3 junior designers and reduced revision rounds by 40%.</p><div class="tag-row"><span class="tag">Acting Design Head</span><span class="tag">Motion Graphics</span><span class="tag">DesignOps</span><span class="tag">Mentoring</span></div></div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><div class="tl-date">Sep 2020 — May 2022</div><div class="tl-company">Cargo Flash Infotech &amp; VKC Nuts Pvt. Ltd.</div><div class="tl-role">Senior Motion Graphics Designer · Motion Graphics Designer</div><p class="tl-desc">At Cargo Flash: 60+ animations in 5 months, 35% social engagement increase, 40% follower growth, 15–20% faster turnaround via advanced AE workflows. At VKC Nuts: designed 200+ marketing collaterals across digital, social, retail, and B2B — packaging visuals contributed to 20% sales increase.</p><div class="tag-row"><span class="tag">Motion Graphics</span><span class="tag">Social Media</span><span class="tag">Brand Consistency</span></div></div></div>
+            <div class="tl-item tl-last"><div class="tl-dot"></div><div class="tl-body"><div class="tl-date">2015 — 2020</div><div class="tl-company">Early Career — CASHurDRIVE · International Traceability Systems · Bliss Marcom · Design O Vista</div><div class="tl-role">Graphic &amp; Motion Designer</div><p class="tl-desc">Designed brand identities, motion graphics, and campaign assets for 15+ clients — delivered 200+ creative assets across advertising, retail, events, and digital marketing. Built core skills across visual design, typography, layout, animation, and brand consistency.</p><div class="tag-row"><span class="tag">Brand Identity</span><span class="tag">Campaign Design</span><span class="tag">Motion Graphics</span></div></div></div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="eyebrow" style="margin-bottom:32px;">Skills &amp; Tools</div>
+          <div class="skills-section">
+            <h3 class="skills-heading">Core Skills</h3>
+            <div class="skill-row"><div class="skill-name">UI/UX Strategy &amp; Interaction Design</div><div class="skill-track"><div class="skill-fill" style="--fill:95%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">Motion Graphics &amp; AI Video Production</div><div class="skill-track"><div class="skill-fill" style="--fill:98%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">Figma Design Systems &amp; Component Libraries</div><div class="skill-track"><div class="skill-fill" style="--fill:95%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">SaaS GTM &amp; AppExchange Optimization</div><div class="skill-track"><div class="skill-fill" style="--fill:90%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">CRO-informed Landing Pages</div><div class="skill-track"><div class="skill-fill" style="--fill:88%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">DesignOps &amp; Team Leadership</div><div class="skill-track"><div class="skill-fill" style="--fill:85%"></div></div></div>
+            <div class="skill-row"><div class="skill-name">Storyboarding &amp; Onboarding UX</div><div class="skill-track"><div class="skill-fill" style="--fill:92%"></div></div></div>
+          </div>
+          <div class="skills-section">
+            <h3 class="skills-heading">Tools</h3>
+            <div class="tag-row"><span class="tag">Figma</span><span class="tag">After Effects</span><span class="tag">Premiere Pro</span><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">Synthesia</span><span class="tag">Sora</span><span class="tag">KlingAI</span><span class="tag">ElevenLabs</span><span class="tag">Adobe Firefly</span><span class="tag">Jasper AI</span><span class="tag">ChatGPT</span><span class="tag">Framer</span><span class="tag">Canva</span><span class="tag">InDesign</span><span class="tag">Notion</span></div>
+          </div>
+          <div class="skills-section">
+            <h3 class="skills-heading">Industries Worked</h3>
+            <div class="tag-row"><span class="tag">Salesforce ISV</span><span class="tag">B2B SaaS</span><span class="tag">IT Services</span><span class="tag">FMCG / Retail</span><span class="tag">E-commerce</span><span class="tag">Healthcare</span><span class="tag">Finance</span><span class="tag">Education</span><span class="tag">Real Estate</span><span class="tag">Startups</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Notable Events</div>
+        <h2 class="display-h2">High-Impact Event &amp; GTM Projects</h2>
+      </div>
+      <div class="card-grid-3">
+        <div class="util-card reveal">
+          <div class="util-icon">🏆</div>
+          <h3 class="util-title">Coalesce 2025 &amp; 2026 — 360 Cloud</h3>
+          <p class="util-desc">Full event identity, stage design, videos, and digital assets for 500+ attendees. End-to-end creative ownership from concept to on-site execution.</p>
+          <div class="tag-row"><span class="tag">Event Branding</span><span class="tag">Motion</span><span class="tag">GTM</span></div>
+        </div>
+        <div class="util-card reveal reveal-delay-1">
+          <div class="util-icon">🤖</div>
+          <h3 class="util-title">Mission Ai-Possible Hackathon 2025</h3>
+          <p class="util-desc">AI hackathon branding, videos, invitations, and social creatives. Jury from NASDAQ, PwC, and Morgan &amp; Morgan attended the event.</p>
+          <div class="tag-row"><span class="tag">AI Branding</span><span class="tag">Social</span><span class="tag">Video</span></div>
+        </div>
+        <div class="util-card reveal reveal-delay-2">
+          <div class="util-icon">☁️</div>
+          <h3 class="util-title">Salesforce Ecosystem 2025</h3>
+          <p class="util-desc">Dreamforce, World Tours, and webinar branding with GTM visuals and motion assets for global Salesforce partner events.</p>
+          <div class="tag-row"><span class="tag">Dreamforce</span><span class="tag">AppExchange</span><span class="tag">GTM Visuals</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Education &amp; Certifications</div>
+        <h2 class="display-h2">Formal Training &amp; Continuous Learning</h2>
+      </div>
+      <div class="card-grid-3">
+        <div class="util-card reveal">
+          <div class="util-icon">🎓</div>
+          <h3 class="util-title">Bachelor of Commerce (B.Com)</h3>
+          <p class="util-desc">Sunrise University, Alwar · 2015</p>
+        </div>
+        <div class="util-card reveal reveal-delay-1">
+          <div class="util-icon">📐</div>
+          <h3 class="util-title">Design &amp; UX Certifications</h3>
+          <p class="util-desc">Figma Advanced — Design Systems &amp; Variables · Google UX Design Certificate · Salesforce Trailhead — AppExchange &amp; GTM Design</p>
+        </div>
+        <div class="util-card reveal reveal-delay-2">
+          <div class="util-icon">🧠</div>
+          <h3 class="util-title">AI &amp; Workflow Training</h3>
+          <p class="util-desc">Generative AI for Creative Workflows · Prompt Engineering for Design &amp; Content</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="footer-accent" onclick="showPage('subscription');return false;">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-experience -->
+
+
+<!-- ════════════════════════════════
+     PAGE 6: ABOUT
+════════════════════════════════ -->
+<div class="page" id="pg-about">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-light about-section">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-left">
+          <div class="visual-block visual-motion about-photo"><div class="visual-inner"><div class="visual-label">Profile Photo</div><div class="visual-hint">320 × 400</div></div></div>
+          <div class="contact-card">
+            <div class="contact-card-title">Contact Info</div>
+            <div class="contact-item">✉️ &nbsp;info.riteshkumaar@gmail.com</div>
+            <div class="contact-item">📱 &nbsp;+91 72 100 150 10</div>
+            <div class="contact-item">💼 &nbsp;linkedin.com/in/mrkumaar</div>
+            <div class="contact-item">📍 &nbsp;Noida / Delhi NCR, India</div>
+            <a href="#" class="btn-pill-outline" style="width:100%;display:block;text-align:center;margin-top:16px;">Download Resume (PDF)</a>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="eyebrow">About Me</div>
+          <h1 class="display-h1">AI Design Lead,<br>UX Thinker &amp; SaaS GTM Builder.</h1>
+          <div class="hero-about-quote">"I don't just design assets — I build Figma systems, lead AI-augmented workflows, and help SaaS teams communicate product value that converts."</div>
+          <p class="section-body" style="margin-top:20px;">I'm an AI-augmented Creative &amp; Product Design Lead with 11+ years driving Salesforce AppExchange optimization, SaaS GTM design, UI/UX systems, and motion-led creative. I deliver across Figma design systems (75+ components), CRO-informed landing pages, product onboarding flows, and AI-assisted video production using Synthesia, Sora, KlingAI, and ElevenLabs.</p>
+          <p class="section-body" style="margin-top:16px;">I partner with Product, Engineering, Sales, and Growth to build scalable systems with measurable impact — 60% lead gen increase, 38% AppExchange install conversion lift, 45% feature adoption improvement, and 50% higher landing page conversion rates. I manage teams, reduce feedback rounds from 5 to 2, and stay hands-on when execution demands it.</p>
+          <div class="philosophy-block">
+            <p class="philosophy-text">"Knowing what to create matters more than knowing how — and in SaaS, that means designing for adoption, conversion, and pipeline, not just aesthetics."</p>
+          </div>
+          <div class="roles-section">
+            <h3 class="roles-title">Roles I'm Targeting</h3>
+            <div class="tag-row">
+              <span class="tag">Creative &amp; Product Design Lead</span>
+              <span class="tag">UX Lead</span>
+              <span class="tag">Design Manager</span>
+              <span class="tag">AppExchange Design Lead</span>
+              <span class="tag">SaaS Design Lead</span>
+              <span class="tag">Art Director</span>
+              <span class="tag">Motion Design Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-about -->
+
+
+<!-- ════════════════════════════════
+     PAGE 7: CONTACT
+════════════════════════════════ -->
+<div class="page" id="pg-contact">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-light contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="eyebrow">Get in Touch</div>
+          <h1 class="display-h1">Take a Coffee &amp;<br>Chat With Me</h1>
+          <p class="section-body" style="margin-top:16px;margin-bottom:32px;">Whether you're a recruiter exploring creative leadership candidates or a brand looking for ongoing creative partnership, I'd love to connect.</p>
+          <div class="contact-details">
+            <div class="contact-detail-item">✉️ &nbsp;info.riteshkumaar@gmail.com</div>
+            <div class="contact-detail-item">📱 &nbsp;+91 72 100 150 10</div>
+            <div class="contact-detail-item">💼 &nbsp;linkedin.com/in/mrkumaar</div>
+            <div class="contact-detail-item">📍 &nbsp;Noida / Delhi NCR, India · Open to remote</div>
+          </div>
+          <div class="enquiry-types">
+            <div class="enquiry-card"><div class="enquiry-icon">🏢</div><h3 class="enquiry-title">Hiring Enquiry</h3><p class="enquiry-desc">Creative Manager / Art Director / Design Lead roles</p></div>
+            <div class="enquiry-card enquiry-card-light"><div class="enquiry-icon">🤝</div><h3 class="enquiry-title">Creative Partnership</h3><p class="enquiry-desc">Monthly retainer / campaign support for brands</p></div>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal reveal-delay-1">
+          <h2 class="form-title">Send a Message</h2>
+          <div class="enquiry-toggle">
+            <button class="enquiry-btn active">Hiring Enquiry</button>
+            <button class="enquiry-btn">Creative Partnership</button>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Name</label>
+            <input class="form-input" type="text" placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Company / Organisation</label>
+            <input class="form-input" type="text" placeholder="Company name">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="How can I help you?"></textarea>
+          </div>
+          <button class="btn-pill btn-full">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="footer-accent" onclick="showPage('subscription');return false;">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-contact -->
+
+
+<!-- ════════════════════════════════
+     PAGE 8: CREATIVE SUBSCRIPTION
+════════════════════════════════ -->
+<div class="page" id="pg-subscription">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="#" onclick="showPage('home');return false;" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" class="nav-link" onclick="showPage('work-gallery');return false;">Work Gallery</a>
+        <a href="#" class="nav-link" onclick="showPage('creative-leadership');return false;">Creative Leadership</a>
+        <a href="#" class="nav-link" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" class="nav-link" onclick="showPage('about');return false;">About</a>
+        <a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a>
+        <a href="#" class="nav-link nav-sub-link" onclick="showPage('subscription');return false;">Creative Subscription ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tile-dark page-hero text-center">
+    <div class="container reveal">
+      <div class="eyebrow eyebrow-light">Creative Subscription</div>
+      <h1 class="display-h1 on-dark">Ongoing Creative Partnership<br>for Growing Brands</h1>
+      <p class="section-body on-dark" style="max-width:600px;margin:0 auto;">A structured monthly retainer model for brands that need consistent design, motion, and campaign creative support — without the overhead of a full-time hire.</p>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="card-grid-3" style="margin-bottom:64px;">
+        <div class="util-card reveal"><div class="util-icon">🎬</div><h3 class="util-title">Motion &amp; Video</h3><p class="util-desc">Monthly motion graphics, social reels, GIF animations, and video campaign assets.</p></div>
+        <div class="util-card reveal reveal-delay-1"><div class="util-icon">📱</div><h3 class="util-title">Social Media Creatives</h3><p class="util-desc">Static posts, carousels, story formats, and campaign visuals for LinkedIn, Instagram, and more.</p></div>
+        <div class="util-card reveal reveal-delay-2"><div class="util-icon">🌐</div><h3 class="util-title">Digital Campaign Design</h3><p class="util-desc">Landing page visuals, ad creatives, email headers, and web banners aligned to your campaigns.</p></div>
+      </div>
+
+      <div class="section-head text-center reveal">
+        <div class="eyebrow">Plans</div>
+        <h2 class="display-h2">Choose a Creative Partnership Level</h2>
+        <p class="section-body">All plans include dedicated creative support, consistent brand direction, and priority turnaround.</p>
+      </div>
+
+
+      <div class="subscription-controls reveal" aria-label="Subscription pricing controls">
+        <div class="subscription-control-group" role="group" aria-label="Choose currency">
+          <button type="button" class="subscription-toggle-btn currency-toggle is-active" data-currency="inr">₹ Rupees</button>
+          <button type="button" class="subscription-toggle-btn currency-toggle" data-currency="usd">$ Dollars</button>
+        </div>
+        <div class="subscription-control-group" role="group" aria-label="Choose billing cycle">
+          <button type="button" class="subscription-toggle-btn billing-toggle is-active" data-billing="monthly">Monthly</button>
+          <button type="button" class="subscription-toggle-btn billing-toggle" data-billing="annual">Annually</button>
+        </div>
+        <span class="subscription-save-note">Annual billing shows 40% savings.</span>
+      </div>
+
+      <div class="plan-grid">
+        <div class="plan-card reveal">
+          <div class="plan-kicker">For individuals and startups</div>
+          <div class="plan-name">Starter Creative Support</div>
+          <div class="plan-price"><span class="plan-amount" data-plan="starter">₹499</span> <span class="plan-period">/monthly</span></div>
+          <p class="plan-desc">Ideal for essential creative support, regular social media creatives, and lightweight motion requirements.</p>
+          <ul class="plan-features">
+            <li><strong>10%</strong> discount on everything</li>
+            <li><strong>2</strong> iterations on every design</li>
+            <li>Per-hour rate: <strong>₹1,170/-</strong></li>
+            <li>No editable file included</li>
+            <li>Project timeline reduced by <strong>10%</strong></li>
+            <li>Moderate priority handling</li>
+          </ul>
+          <a href="#" class="btn-pill-outline btn-full" onclick="showPage('contact');return false;">Get Started</a>
+        </div>
+        <div class="plan-card plan-featured reveal reveal-delay-1">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-kicker">For growing businesses</div>
+          <div class="plan-name">Growth Creative Partner</div>
+          <div class="plan-price"><span class="plan-amount" data-plan="growth">₹999</span> <span class="plan-period">/monthly</span></div>
+          <p class="plan-desc">Perfect for growing brands seeking versatile, professional design services with faster delivery.</p>
+          <ul class="plan-features">
+            <li><strong>20%</strong> discount on everything</li>
+            <li><strong>3</strong> iterations on every design</li>
+            <li>Any <strong>1 editable file</strong> provided</li>
+            <li><strong>20%</strong> faster delivery</li>
+            <li>High-priority project handling</li>
+            <li>Priority support + one free design audit</li>
+          </ul>
+          <a href="#" class="btn-pill btn-full" onclick="showPage('contact');return false;">Get Started</a>
+        </div>
+        <div class="plan-card reveal reveal-delay-2">
+          <div class="plan-kicker">For high-frequency design needs</div>
+          <div class="plan-name">Dedicated Creative Desk</div>
+          <div class="plan-price"><span class="plan-amount" data-plan="dedicated">₹2,999</span> <span class="plan-period">/monthly</span></div>
+          <p class="plan-desc">The advanced creative desk for brands that need premium design output, priority support, and consultation.</p>
+          <ul class="plan-features">
+            <li><strong>25%</strong> discount on everything</li>
+            <li><strong>3</strong> iterations on every design</li>
+            <li>Any <strong>2 editable files</strong> provided</li>
+            <li>Free consultation included</li>
+            <li>Top-priority project handling</li>
+            <li>24/7 premium support + account manager</li>
+          </ul>
+          <a href="#" class="btn-pill-outline btn-full" onclick="showPage('contact');return false;">Get Started</a>
+        </div>
+      </div>
+
+      <div class="subscription-extra-details reveal">
+        <div class="section-head text-center">
+          <div class="eyebrow">Plans and Features</div>
+          <h2 class="display-h2">Compare Creative Support Levels</h2>
+          <p class="compare-note">Use this comparison to understand the savings, revision limits, editable file access, turnaround, and support level included in each plan.</p>
+        </div>
+
+        <div class="plan-comparison-wrap">
+          <table class="plan-comparison" aria-label="Creative subscription plan comparison">
+            <thead>
+              <tr>
+                <th>Benefit</th>
+                <th>Non-member</th>
+                <th>Starter Creative Support</th>
+                <th>Growth Creative Partner</th>
+                <th>Dedicated Creative Desk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th>Cost Savings</th><td>None</td><td>10% Discount</td><td>20% Discount</td><td>25% Discount</td></tr>
+              <tr data-compare-row="hourly"><th>Per Hour Rate</th><td data-compare="nonmember">₹1,299</td><td data-compare="starter">₹1,169.10</td><td data-compare="growth">₹1,039.20</td><td data-compare="dedicated">₹975.00</td></tr>
+              <tr><th>Revisions Included</th><td>1 Revision</td><td>2 Revisions</td><td>3 Revisions</td><td>3 Revisions</td></tr>
+              <tr><th>Project Timeline</th><td>Standard</td><td>Reduced by 10%</td><td>Reduced by 20%</td><td>Reduced by 25%</td></tr>
+              <tr><th>Access to RAW Files</th><td>Charged Extra</td><td>Included where applicable</td><td>Included</td><td>Included</td></tr>
+              <tr><th>Priority Project Handling</th><td>No</td><td>Moderate Priority</td><td>High Priority</td><td>Top Priority</td></tr>
+              <tr><th>Value for High-Volume Needs</th><td>Higher Costs</td><td>Moderate Savings</td><td>Significant Savings</td><td>Maximum Savings</td></tr>
+              <tr><th>RAW / Editable Files Provided</th><td>-</td><td>-</td><td>1</td><td>2</td></tr>
+              <tr><th>Free Consultation</th><td>-</td><td>-</td><td>-</td><td>Yes</td></tr>
+              <tr><th>Account Manager</th><td>-</td><td>-</td><td>-</td><td>Yes</td></tr>
+              <tr><th>Complimentary Services</th><td>-</td><td>-</td><td>2 per quarter</td><td>4 per quarter</td></tr>
+              <tr><th>Dedicated Support Line</th><td>Standard Support</td><td>Standard Support</td><td>Priority Support</td><td>24/7 Premium Support</td></tr>
+              <tr><th>Design Audit</th><td>Not Included</td><td>Not Included</td><td>One Free Audit</td><td>Two Free Audits</td></tr>
+              <tr><th>Discount on Future Upgrades</th><td>None</td><td>5% Discount</td><td>10% Discount</td><td>15% Discount</td></tr>
+              <tr><th>Best For</th><td>Occasional Design Needs</td><td>Moderate Design Needs</td><td>Regular Design Needs</td><td>High-Frequency Design Needs</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="consult-cta reveal">
+        <h3 class="consult-title">Not sure which plan fits?</h3>
+        <p class="consult-desc">Schedule a free 20-minute creative consultation and I'll help you figure out the right level of support for your brand.</p>
+        <a href="#" class="btn-pill" onclick="showPage('contact');return false;">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Ritesh Kumaar</div>
+        <div class="footer-tagline">Creative Design Leader · Noida / Delhi NCR, India</div>
+      </div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('home');return false;">Portfolio</a>
+        <a href="#" onclick="showPage('case-studies');return false;">Case Studies</a>
+        <a href="#" onclick="showPage('experience');return false;">Experience</a>
+        <a href="#" onclick="showPage('contact');return false;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-subscription -->
+
+
+
+<script>
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest('.nav-links a[onclick*="showPage"]');
+    if (!link) return;
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+<script id="subscription-pricing-toggle">
+(function () {
+  const state = { currency: 'inr', billing: 'monthly' };
+  const prices = {
+    inr: {
+      monthly: { starter: '₹499', growth: '₹999', dedicated: '₹2,999', period: '/monthly' },
+      annual: { starter: '₹3,593', growth: '₹7,193', dedicated: '₹21,593', period: '/year' },
+      hourly: { nonmember: '₹1,299', starter: '₹1,169.10', growth: '₹1,039.20', dedicated: '₹975.00' }
+    },
+    usd: {
+      monthly: { starter: '$6', growth: '$12', dedicated: '$36', period: '/monthly' },
+      annual: { starter: '$43', growth: '$87', dedicated: '$260', period: '/year' },
+      hourly: { nonmember: '$16', starter: '$14', growth: '$13', dedicated: '$12' }
+    }
+  };
+
+  function setActive(selector, attr, value) {
+    document.querySelectorAll(selector).forEach(function (button) {
+      button.classList.toggle('is-active', button.getAttribute(attr) === value);
+    });
+    document.querySelectorAll(selector).forEach(function (button) {
+      const parent = button.closest('.subscription-control-group');
+      if (!parent) return;
+      const buttons = Array.from(parent.querySelectorAll('.subscription-toggle-btn'));
+      parent.classList.toggle('is-second-active', buttons[1] && buttons[1].classList.contains('is-active'));
+    });
+  }
+
+  function updateSubscriptionPricing() {
+    const current = prices[state.currency][state.billing];
+    document.querySelectorAll('[data-plan]').forEach(function (node) {
+      const key = node.getAttribute('data-plan');
+      if (current[key]) node.textContent = current[key];
+    });
+    document.querySelectorAll('.plan-period').forEach(function (node) {
+      node.textContent = current.period;
+    });
+
+    const hourly = prices[state.currency].hourly;
+    document.querySelectorAll('[data-compare]').forEach(function (node) {
+      const key = node.getAttribute('data-compare');
+      if (hourly[key]) node.textContent = hourly[key];
+    });
+
+    setActive('.currency-toggle', 'data-currency', state.currency);
+    setActive('.billing-toggle', 'data-billing', state.billing);
+  }
+
+  document.addEventListener('click', function (event) {
+    const currencyBtn = event.target.closest('.currency-toggle');
+    const billingBtn = event.target.closest('.billing-toggle');
+
+    if (currencyBtn) {
+      state.currency = currencyBtn.getAttribute('data-currency') || 'inr';
+      updateSubscriptionPricing();
+    }
+    if (billingBtn) {
+      state.billing = billingBtn.getAttribute('data-billing') || 'monthly';
+      updateSubscriptionPricing();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', updateSubscriptionPricing);
+  updateSubscriptionPricing();
+})();
+</script>
+
+<script src="portfolio.js"></script>
+
+<script>
+(function () {
+  const validPages = new Set([
+    'home',
+    'case-studies',
+    'work-gallery',
+    'creative-leadership',
+    'experience',
+    'about',
+    'contact',
+    'subscription'
+  ]);
+
+  function normalizePage(page) {
+    page = String(page || 'home').replace(/^#/, '').trim();
+    return validPages.has(page) ? page : 'home';
+  }
+
+  function setActiveNav(page) {
+    document.querySelectorAll('.nav-links a, .footer-links a, .nav-drawer a').forEach(function (link) {
+      const onclick = link.getAttribute('onclick') || '';
+      const match = onclick.match(/showPage\('([^']+)'\)/);
+      link.classList.toggle('active', !!match && match[1] === page);
+    });
+  }
+
+  function forceStickyHeader() {
+    document.querySelectorAll('.site-nav').forEach(function (nav) {
+      nav.style.position = 'fixed';
+      nav.style.top = '0';
+      nav.style.left = '0';
+      nav.style.right = '0';
+      nav.style.width = '100%';
+      nav.style.zIndex = '2147483647';
+      nav.style.transform = 'translate3d(0,0,0)';
+      nav.style.opacity = '1';
+      nav.style.visibility = 'visible';
+    });
+    document.documentElement.style.marginTop = '0';
+    document.body.style.marginTop = '0';
+    document.body.style.paddingTop = '0';
+  }
+
+  const previousShowPage = window.showPage;
+
+  window.showPage = function (page, options) {
+    options = options || {};
+    page = normalizePage(page);
+
+    if (typeof previousShowPage === 'function') {
+      try { previousShowPage(page); } catch (error) {}
+    }
+
+    document.querySelectorAll('.page').forEach(function (section) {
+      section.classList.remove('visible');
+      section.style.display = 'none';
+    });
+
+    const target = document.getElementById('pg-' + page);
+    if (target) {
+      target.classList.add('visible');
+      target.style.display = 'block';
+    }
+
+    setActiveNav(page);
+    forceStickyHeader();
+
+    if (!options.fromHistory) {
+      const url = page === 'home'
+        ? window.location.pathname + window.location.search
+        : window.location.pathname + window.location.search + '#' + page;
+      history.pushState({ page: page }, '', url);
+    }
+
+    if (!options.keepScroll) {
+      window.scrollTo({ top: 0, left: 0, behavior: options.instant ? 'auto' : 'smooth' });
+    }
+  };
+
+  window.addEventListener('popstate', function () {
+    const page = normalizePage(window.location.hash || 'home');
+    window.showPage(page, { fromHistory: true, instant: true });
+  });
+
+  window.addEventListener('hashchange', function () {
+    const page = normalizePage(window.location.hash || 'home');
+    window.showPage(page, { fromHistory: true, instant: true });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    forceStickyHeader();
+    const initialPage = normalizePage(window.location.hash || 'home');
+    window.showPage(initialPage, { fromHistory: true, instant: true });
+  });
+
+  window.addEventListener('scroll', forceStickyHeader, { passive: true });
+  window.addEventListener('resize', forceStickyHeader);
+})();
+</script>
+</body>
+</html>
