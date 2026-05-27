@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Work Gallery — Ritesh Kumaar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../portfolio.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0 !important; padding: 0 !important; background: #0d0d0f !important; min-height: 100vh !important; overflow-x: hidden !important; }
+  #dev-nav, #rk-loader { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+  .page { display: block !important; margin-top: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; transform: translate3d(0,0,0) !important; will-change: transform !important; }
+  .site-nav.is-hidden, .site-nav.nav-hidden, .site-nav.hidden { transform: translate3d(0,0,0) !important; opacity: 1 !important; visibility: visible !important; }
+  .nav-inner { gap: 20px; }
+  .nav-links { display: flex; align-items: center; justify-content: center; gap: 26px; flex-wrap: wrap; }
+  .nav-links .nav-link, .nav-links .nav-sub-link { white-space: nowrap; }
+  @media (max-width: 980px) { .nav-links { gap: 14px; font-size: 13px; } }
+  body::before, html::before { content: none !important; display: none !important; }
+  .nav-links a.active { color: #fff !important; }
+</style>
+<style id="rk-logo-home-fix">
+  html, body { margin: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; }
+  .nav-logo a { color: inherit !important; text-decoration: none !important; cursor: pointer !important; }
+  .nav-logo a:hover { opacity: 0.85; }
+  .nav-links .nav-link.active { outline: none; }
+</style>
+<style id="temporary-subscription-and-metric-fix">
+  .site-nav .nav-sub-link, .nav-drawer .nav-sub-link { display: none !important; }
+  .metrics-tile .metric { white-space: nowrap !important; }
+  .metrics-tile .metric-num { display: inline-block !important; vertical-align: baseline !important; line-height: 0.95 !important; }
+  .metrics-tile .metric-suffix { display: inline-block !important; vertical-align: super !important; margin-left: 4px !important; line-height: 1 !important; position: relative !important; top: -0.15em !important; }
+  .metrics-tile .metric-label { white-space: normal !important; }
+</style>
+</head>
+<body>
+
+<div id="rk-cursor"></div>
+<div id="rk-cursor-outer"></div>
+
+<div class="page visible" id="pg-work-gallery">
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="../index.html" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="./case-studies.html" class="nav-link">Case Studies</a>
+        <a href="./work-gallery.html" class="nav-link active">Work Gallery</a>
+        <a href="./creative-leadership.html" class="nav-link">Creative Leadership</a>
+        <a href="./experience.html" class="nav-link">Experience</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+        <a href="./subscription.html" class="nav-link nav-sub-link">Creative Subscription ↗</a>
+      </div>
+      <a href="./contact.html" class="btn-pill nav-cta">Hire Me</a>
+    </div>
+  </nav>
+  <div class="nav-drawer">
+    <a href="../index.html" class="nav-drawer-link">Home</a>
+    <a href="./case-studies.html" class="nav-drawer-link">Case Studies</a>
+    <a href="./work-gallery.html" class="nav-drawer-link">Work Gallery</a>
+    <a href="./creative-leadership.html" class="nav-drawer-link">Leadership</a>
+    <a href="./experience.html" class="nav-drawer-link">Experience</a>
+    <a href="./about.html" class="nav-drawer-link">About</a>
+    <a href="./contact.html" class="btn-pill nav-cta">Hire Me</a>
+    <a href="./subscription.html" class="nav-sub-link">Creative Subscription ↗</a>
+  </div>
+
+  <section class="wg-hero tile-dark">
+    <div class="container">
+      <div class="wg-hero-inner reveal">
+        <div>
+          <div class="eyebrow eyebrow-light">Work Gallery</div>
+          <h1 class="display-h1 on-dark">Creative Work Across Every Format</h1>
+          <p class="section-body on-dark">Motion videos, social creatives, GIF animations, and brand identity work — built for real campaigns. Click any item to view details and play.</p>
+        </div>
+        <div class="wg-hero-badges">
+          <div class="wg-hero-badge"><span class="wg-badge-num">3</span><span class="wg-badge-label">Motion<br>Videos</span></div>
+          <div class="wg-hero-badge"><span class="wg-badge-num">4</span><span class="wg-badge-label">Social<br>Posts</span></div>
+          <div class="wg-hero-badge"><span class="wg-badge-num">3</span><span class="wg-badge-label">GIF<br>Animations</span></div>
+          <div class="wg-hero-badge"><span class="wg-badge-num">4</span><span class="wg-badge-label">Logo &amp;<br>Brand</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light wg-gallery-section">
+    <div class="container">
+      <div class="filter-tabs wg-filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Video</button>
+        <button class="filter-tab">Static</button>
+        <button class="filter-tab">GIF</button>
+        <button class="filter-tab">Logos</button>
+        <button class="filter-tab">Favourites</button>
+        <button class="filter-tab">Case Study</button>
+      </div>
+
+      <div class="gallery-section reveal" id="wgs-motion">
+        <div class="wg-section-head">
+          <h3 class="gallery-section-title">Motion Video</h3>
+          <span class="wg-section-count">3 items</span>
+        </div>
+        <div class="gallery-grid-3">
+          <div class="gallery-item wg-item" data-category="video" onclick="openWorkGalleryItem('wg-v1');return false;">
+            <div class="wg-thumb">
+              <video class="wg-thumb-video" preload="metadata" muted playsinline>
+                <source src="../Video%201.mp4" type="video/mp4">
+              </video>
+              <div class="wg-thumb-overlay">
+                <div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div>
+              </div>
+              <span class="wg-type-badge">▶ Video</span>
+            </div>
+            <div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Product Launch Campaign Video</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="video" onclick="openWorkGalleryItem('wg-v2');return false;">
+            <div class="wg-thumb">
+              <video class="wg-thumb-video" preload="metadata" muted playsinline>
+                <source src="../video%202.mp4" type="video/mp4">
+              </video>
+              <div class="wg-thumb-overlay">
+                <div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div>
+              </div>
+              <span class="wg-type-badge">▶ Video</span>
+            </div>
+            <div class="gallery-meta"><span class="gallery-tag">Motion · 2024</span><div class="gallery-name">Social Media Reel</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="video" onclick="openWorkGalleryItem('wg-v3');return false;">
+            <div class="wg-thumb">
+              <video class="wg-thumb-video" preload="metadata" muted playsinline>
+                <source src="../image2.mp4" type="video/mp4">
+              </video>
+              <div class="wg-thumb-overlay">
+                <div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div>
+              </div>
+              <span class="wg-type-badge">▶ Video</span>
+            </div>
+            <div class="gallery-meta"><span class="gallery-tag">Motion · 2023</span><div class="gallery-name">Brand Explainer</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal" id="wgs-social">
+        <div class="wg-section-head">
+          <h3 class="gallery-section-title">Social Media &amp; Static</h3>
+          <span class="wg-section-count">4 items</span>
+        </div>
+        <div class="gallery-grid-4">
+          <div class="gallery-item wg-item" data-category="static" onclick="openWorkGalleryItem('wg-s1');return false;">
+            <div class="wg-thumb">
+              <img class="wg-thumb-img" src="../image1.jpg" alt="Campaign Post" loading="lazy">
+              <div class="wg-thumb-overlay">
+                <div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div>
+              </div>
+              <span class="wg-type-badge">⬛ Image</span>
+            </div>
+            <div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Campaign Post</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="static" onclick="openWorkGalleryItem('wg-s2');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-social"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Social · LinkedIn</span><div class="gallery-name">B2B Campaign</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="static" onclick="openWorkGalleryItem('wg-s3');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-social"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Social · Instagram</span><div class="gallery-name">Product Feature</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="static" onclick="openWorkGalleryItem('wg-s4');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-social"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Social · Twitter</span><div class="gallery-name">Promotional</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal" id="wgs-gif">
+        <div class="wg-section-head">
+          <h3 class="gallery-section-title">GIF Animations</h3>
+          <span class="wg-section-count">3 items</span>
+        </div>
+        <div class="gallery-grid-3">
+          <div class="gallery-item wg-item" data-category="gif" onclick="openWorkGalleryItem('wg-g1');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-gif"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Campaign Animation</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="gif" onclick="openWorkGalleryItem('wg-g2');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-gif"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Feature Highlight</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="gif" onclick="openWorkGalleryItem('wg-g3');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-gif"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="6,3 20,12 6,21"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">GIF · Loop</span><div class="gallery-name">Social Asset</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal" id="wgs-brand">
+        <div class="wg-section-head">
+          <h3 class="gallery-section-title">Logo &amp; Brand Identity</h3>
+          <span class="wg-section-count">4 items</span>
+        </div>
+        <div class="gallery-grid-4">
+          <div class="gallery-item wg-item" data-category="logos" onclick="openWorkGalleryItem('wg-l1');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-brand"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Logo · Branding</span><div class="gallery-name">Brand Identity</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="logos" onclick="openWorkGalleryItem('wg-l2');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-brand"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Logo · Branding</span><div class="gallery-name">Brand System</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="logos" onclick="openWorkGalleryItem('wg-l3');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-brand"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Logo · Branding</span><div class="gallery-name">Visual Identity</div></div>
+          </div>
+          <div class="gallery-item wg-item" data-category="logos" onclick="openWorkGalleryItem('wg-l4');return false;">
+            <div class="wg-thumb wg-thumb--ph visual-brand"><div class="wg-ph-label">Coming Soon</div><div class="wg-thumb-overlay"><div class="wg-action-btn wg-view-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg></div></div></div>
+            <div class="gallery-meta"><span class="gallery-tag">Logo · Branding</span><div class="gallery-name">Mark Design</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section reveal" id="wgs-admin" style="display:none">
+        <div class="wg-section-head">
+          <h3 class="gallery-section-title">Other Projects</h3>
+          <span class="wg-section-count" id="wgs-admin-count">0 items</span>
+        </div>
+        <div class="gallery-grid-3" id="wgs-admin-grid"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="./case-studies.html">Case Studies</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./subscription.html" class="footer-accent">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-work-gallery -->
+
+<!-- Process Modal -->
+<div id="process-modal" class="pm" role="dialog" aria-modal="true" aria-label="Creative process walkthrough">
+  <div class="pm__backdrop" id="pm-backdrop"></div>
+  <div class="pm__container" id="pm-container">
+    <button class="pm__close" id="pm-close" aria-label="Close modal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="pm__body">
+      <div class="pm__left" id="pm-left">
+        <div class="pm__project-header">
+          <div class="pm__project-eyebrow">
+            <span class="pm__cat" id="pm-category"></span>
+            <span class="pm__dot">·</span>
+            <span class="pm__yr" id="pm-year"></span>
+          </div>
+          <h1 class="pm__project-title" id="pm-project-title"></h1>
+          <button class="pm__final-shortcut" id="pm-final-btn" type="button">View Final Output ↓</button>
+        </div>
+        <div class="pm__steps" id="pm-steps"></div>
+      </div>
+      <div class="pm__right" id="pm-right">
+        <div class="pm__panel">
+          <div class="pm__progress" id="pm-progress"></div>
+          <div class="pm__step-info" id="pm-step-info">
+            <div class="pm__step-counter" id="pm-step-counter"></div>
+            <h2 class="pm__step-title" id="pm-step-title"></h2>
+            <div class="pm__step-section"><div class="pm__step-label">Objective</div><div class="pm__step-text" id="pm-step-objective"></div></div>
+            <div class="pm__step-section"><div class="pm__step-label">Thinking Process</div><div class="pm__step-text" id="pm-step-thinking"></div></div>
+            <div class="pm__step-section"><div class="pm__step-label">Design Decision</div><div class="pm__step-text" id="pm-step-decision"></div></div>
+            <div class="pm__step-section"><div class="pm__step-label">Outcome</div><div class="pm__step-text pm__step-text--outcome" id="pm-step-outcome"></div></div>
+            <div class="pm__step-tools-row" id="pm-step-tools"></div>
+          </div>
+          <div class="pm__project-meta" id="pm-project-meta">
+            <div class="pm__meta-item"><span class="pm__meta-label">Role</span><span class="pm__meta-val" id="pm-meta-role"></span></div>
+            <div class="pm__meta-item"><span class="pm__meta-label">Tools</span><span class="pm__meta-val" id="pm-meta-tools"></span></div>
+            <div class="pm__meta-item"><span class="pm__meta-label">Platform</span><span class="pm__meta-val" id="pm-meta-platform"></span></div>
+            <div class="pm__panel-nav">
+              <button class="pm__pnav-btn" id="pm-prev" type="button">← Prev</button>
+              <button class="pm__pnav-btn pm__pnav-btn--close" type="button" id="pm-close-pill">Close ✕</button>
+              <button class="pm__pnav-btn pm__pnav-btn--next" id="pm-next" type="button">Next →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pm__lightbox" id="pm-lightbox" role="dialog" aria-modal="true" aria-label="Full size image">
+  <div class="pm__lightbox-bg" id="pm-lightbox-bg"></div>
+  <img class="pm__lightbox-img" id="pm-lightbox-img" src="" alt="">
+  <button class="pm__lightbox-close" id="pm-lightbox-close" aria-label="Close lightbox">✕</button>
+</div>
+
+<!-- View All Modal -->
+<div id="wg-viewall-modal" class="wg-va" role="dialog" aria-modal="true" aria-label="View all projects in section">
+  <div class="wg-va__backdrop" id="wg-va-backdrop"></div>
+  <div class="wg-va__inner">
+    <div class="wg-va__head">
+      <h2 class="wg-va__title" id="wg-va-title">All Projects</h2>
+      <span class="wg-va__count" id="wg-va-count"></span>
+      <button class="wg-va__close" id="wg-va-close" onclick="closeViewAllModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="wg-va__grid" id="wg-va-grid"></div>
+  </div>
+</div>
+
+<div id="rk-modal" class="rkm" role="dialog" aria-modal="true" aria-labelledby="rkm-title" aria-describedby="rkm-desc" hidden>
+  <div class="rkm__backdrop" id="rkm-backdrop"></div>
+  <div class="rkm__card" id="rkm-card" tabindex="-1">
+    <div class="rkm__head">
+      <div class="rkm__titles">
+        <h2 class="rkm__title" id="rkm-title"></h2>
+        <p class="rkm__desc" id="rkm-desc"></p>
+      </div>
+      <button class="rkm__close" id="rkm-close" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="16" height="16">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="rkm__body" id="rkm-body"></div>
+    <div class="rkm__foot" id="rkm-foot">
+      <button class="rkm__btn rkm__btn--secondary" id="rkm-cancel">Maybe later</button>
+      <button class="rkm__btn rkm__btn--primary" id="rkm-submit">Send inquiry</button>
+    </div>
+  </div>
+</div>
+
+<script src="../portfolio.js"></script>
+<script type="module" src="../firebase-public-sync.js"></script>
+</body>
+</html>

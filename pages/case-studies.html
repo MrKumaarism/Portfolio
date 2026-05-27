@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Case Studies — Ritesh Kumaar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../portfolio.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0 !important; padding: 0 !important; background: #0d0d0f !important; min-height: 100vh !important; overflow-x: hidden !important; }
+  #dev-nav, #rk-loader { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+  .page { display: block !important; margin-top: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; transform: translate3d(0,0,0) !important; will-change: transform !important; }
+  .site-nav.is-hidden, .site-nav.nav-hidden, .site-nav.hidden { transform: translate3d(0,0,0) !important; opacity: 1 !important; visibility: visible !important; }
+  .nav-inner { gap: 20px; }
+  .nav-links { display: flex; align-items: center; justify-content: center; gap: 26px; flex-wrap: wrap; }
+  .nav-links .nav-link, .nav-links .nav-sub-link { white-space: nowrap; }
+  @media (max-width: 980px) { .nav-links { gap: 14px; font-size: 13px; } }
+  body::before, html::before { content: none !important; display: none !important; }
+  .nav-links a.active { color: #fff !important; }
+</style>
+<style id="rk-logo-home-fix">
+  html, body { margin: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; }
+  .nav-logo a { color: inherit !important; text-decoration: none !important; cursor: pointer !important; }
+  .nav-logo a:hover { opacity: 0.85; }
+  .nav-links .nav-link.active { outline: none; }
+</style>
+<style id="temporary-subscription-and-metric-fix">
+  .site-nav .nav-sub-link, .nav-drawer .nav-sub-link { display: none !important; }
+  .metrics-tile .metric { white-space: nowrap !important; }
+  .metrics-tile .metric-num { display: inline-block !important; vertical-align: baseline !important; line-height: 0.95 !important; }
+  .metrics-tile .metric-suffix { display: inline-block !important; vertical-align: super !important; margin-left: 4px !important; line-height: 1 !important; position: relative !important; top: -0.15em !important; }
+  .metrics-tile .metric-label { white-space: normal !important; }
+</style>
+</head>
+<body>
+
+<div id="rk-cursor"></div>
+<div id="rk-cursor-outer"></div>
+
+<div class="page visible" id="pg-case-studies">
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="../index.html" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="./case-studies.html" class="nav-link active">Case Studies</a>
+        <a href="./work-gallery.html" class="nav-link">Work Gallery</a>
+        <a href="./creative-leadership.html" class="nav-link">Creative Leadership</a>
+        <a href="./experience.html" class="nav-link">Experience</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+        <a href="./subscription.html" class="nav-link nav-sub-link">Creative Subscription ↗</a>
+      </div>
+      <a href="./contact.html" class="btn-pill nav-cta">Hire Me</a>
+    </div>
+  </nav>
+  <div class="nav-drawer">
+    <a href="../index.html" class="nav-drawer-link">Home</a>
+    <a href="./case-studies.html" class="nav-drawer-link">Case Studies</a>
+    <a href="./work-gallery.html" class="nav-drawer-link">Work Gallery</a>
+    <a href="./creative-leadership.html" class="nav-drawer-link">Leadership</a>
+    <a href="./experience.html" class="nav-drawer-link">Experience</a>
+    <a href="./about.html" class="nav-drawer-link">About</a>
+    <a href="./contact.html" class="btn-pill nav-cta">Hire Me</a>
+    <a href="./subscription.html" class="nav-sub-link">Creative Subscription ↗</a>
+  </div>
+
+  <section class="tile-dark page-hero">
+    <div class="container reveal">
+      <div class="eyebrow eyebrow-light">Creative Case Studies</div>
+      <h1 class="display-h1 on-dark">From Strategy to Execution</h1>
+      <p class="section-body on-dark">4 to 6 detailed case studies showing business goals, creative direction, execution, and impact — not just final outputs.</p>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div id="cs-dynamic-list"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">Ritesh Kumaar</div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="./experience.html">Experience</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./subscription.html" class="footer-accent">Creative Subscription</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-case-studies -->
+
+<!-- ── CASE STUDY MODAL ── -->
+<div id="cs-modal" class="csm" role="dialog" aria-modal="true" aria-label="Case Study Detail">
+  <div class="csm__backdrop" id="csm-backdrop"></div>
+  <div class="csm__container">
+    <button class="csm__close" id="csm-close" aria-label="Close case study">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="csm__body">
+
+      <!-- LEFT: scrollable image cards -->
+      <div class="csm__left" id="csm-left">
+        <div class="csm__project-header">
+          <div class="csm__project-eyebrow" id="csm-eyebrow"></div>
+          <h2 class="csm__project-title" id="csm-left-title"></h2>
+        </div>
+        <div class="csm__img-cards" id="csm-img-cards"></div>
+      </div>
+
+      <!-- RIGHT: sticky info panel -->
+      <div class="csm__right">
+        <div class="csm__panel">
+          <div class="csm__panel-scroll">
+            <div class="csm__type-badge" id="csm-type"></div>
+            <h3 class="csm__title" id="csm-title"></h3>
+            <div class="csm__meta-grid">
+              <div class="csm__meta-item">
+                <div class="csm__meta-label">Business Goal</div>
+                <div class="csm__meta-val" id="csm-goal"></div>
+              </div>
+              <div class="csm__meta-item">
+                <div class="csm__meta-label">My Role</div>
+                <div class="csm__meta-val" id="csm-role"></div>
+              </div>
+              <div class="csm__meta-item">
+                <div class="csm__meta-label">Platform</div>
+                <div class="csm__meta-val" id="csm-platform"></div>
+              </div>
+              <div class="csm__meta-item">
+                <div class="csm__meta-label">Tools</div>
+                <div class="csm__meta-val" id="csm-tools"></div>
+              </div>
+            </div>
+            <p class="csm__desc" id="csm-desc"></p>
+            <div class="tag-row csm__tags" id="csm-tags"></div>
+          </div>
+          <div class="csm__nav">
+            <button class="csm__nav-btn" id="csm-prev" disabled>← Prev</button>
+            <button class="csm__nav-btn csm__nav-btn--close" onclick="closeCaseStudyModal()">Close</button>
+            <button class="csm__nav-btn csm__nav-btn--next" id="csm-next">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="rk-modal" class="rkm" role="dialog" aria-modal="true" aria-labelledby="rkm-title" aria-describedby="rkm-desc" hidden>
+  <div class="rkm__backdrop" id="rkm-backdrop"></div>
+  <div class="rkm__card" id="rkm-card" tabindex="-1">
+    <div class="rkm__head">
+      <div class="rkm__titles">
+        <h2 class="rkm__title" id="rkm-title"></h2>
+        <p class="rkm__desc" id="rkm-desc"></p>
+      </div>
+      <button class="rkm__close" id="rkm-close" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="16" height="16">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="rkm__body" id="rkm-body"></div>
+    <div class="rkm__foot" id="rkm-foot">
+      <button class="rkm__btn rkm__btn--secondary" id="rkm-cancel">Maybe later</button>
+      <button class="rkm__btn rkm__btn--primary" id="rkm-submit">Send inquiry</button>
+    </div>
+  </div>
+</div>
+
+<script src="../portfolio.js"></script>
+<script type="module" src="../firebase-public-sync.js"></script>
+<script>
+  if (typeof window.renderCaseStudyCards === 'function') window.renderCaseStudyCards();
+
+  var hash = window.location.hash;
+  if (hash) {
+    setTimeout(function() {
+      var el = document.querySelector(hash);
+      if (el) {
+        var navH = (document.querySelector('.site-nav') || {}).offsetHeight || 80;
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - navH - 24, behavior: 'smooth' });
+      }
+    }, 200);
+  }
+</script>
+</body>
+</html>
