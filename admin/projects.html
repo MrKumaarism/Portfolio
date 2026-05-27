@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <!-- Sidebar (same structure) -->
+  <aside class="sidebar">
+    <div class="sidebar__brand"><div class="sidebar__brand-mark">RK</div><div><div class="sidebar__brand-name">Ritesh Kumaar</div><div class="sidebar__brand-sub">Portfolio Admin</div></div></div>
+    <nav class="sidebar__nav">
+      <div class="sidebar__section">Main</div>
+      <a class="sidebar__link" href="dashboard.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a class="sidebar__link" href="projects.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>Projects<span class="sidebar__badge" id="sb-count">0</span></a>
+      <a class="sidebar__link" href="case-studies.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>Case Studies</a>
+      <a class="sidebar__link" href="upload.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12l4-4 4 4"/></svg>Upload Project</a>
+      <a class="sidebar__link" href="media-library.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>Media Library</a>
+      <div class="sidebar__section">Config</div>
+      <a class="sidebar__link" href="settings.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Settings</a>
+      <a class="sidebar__link" href="../index.html" target="_blank"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Portfolio</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user"><div class="sidebar__avatar">A</div><div><div class="sidebar__username" id="sidebar-email">admin</div><div class="sidebar__role">Administrator</div></div></div>
+      <button onclick="Auth.logout()" class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px;color:rgba(255,255,255,0.4)">Sign Out</button>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar__title">Projects <span class="topbar__subtitle" id="proj-count"></span></div>
+      <div class="topbar__actions">
+        <a href="upload.html" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Project
+        </a>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div id="sync-banner" style="display:none;background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;display:flex;align-items:center;gap:12px">
+        <span>⚠️ Some portfolio items are missing from admin.</span>
+        <button class="btn btn-sm btn-primary" onclick="forceSyncAll()">Sync Now</button>
+      </div>
+      <!-- Filters -->
+      <div class="filter-bar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="search-input" placeholder="Search projects…" oninput="renderProjects()">
+        </div>
+        <select class="filter-select" id="filter-category" onchange="renderProjects()">
+          <option value="">All Categories</option>
+        </select>
+        <select class="filter-select" id="filter-status" onchange="renderProjects()">
+          <option value="">All Status</option>
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+          <option value="hidden">Hidden</option>
+        </select>
+        <select class="filter-select" id="filter-featured" onchange="renderProjects()">
+          <option value="">All</option>
+          <option value="yes">Featured</option>
+          <option value="no">Not Featured</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap" id="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Year</th>
+              <th>Status</th>
+              <th>Featured</th>
+              <th>Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="projects-table-body"></tbody>
+        </table>
+      </div>
+
+      <div id="empty-state" style="display:none">
+        <div class="empty-state">
+          <div class="empty-state__icon">📂</div>
+          <div class="empty-state__title">No projects found</div>
+          <div class="empty-state__text">Try adjusting your filters or upload a new project.</div>
+          <a href="upload.html" class="btn btn-primary">Upload Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="admin.js"></script>
+<script>
+window.initPage = function() {
+var cats = DB.getSettings().categories || [];
+var catSel = document.getElementById('filter-category');
+cats.forEach(function(c) {
+  var o = document.createElement('option');
+  o.value = c; o.textContent = c;
+  catSel.appendChild(o);
+});
+
+var totalProjects = DB.getProjects().length;
+document.getElementById('sb-count').textContent = totalProjects;
+document.getElementById('proj-count').textContent = '(' + totalProjects + ')';
+
+function renderProjects() {
+  var q    = (document.getElementById('search-input').value || '').toLowerCase();
+  var cat  = document.getElementById('filter-category').value;
+  var stat = document.getElementById('filter-status').value;
+  var feat = document.getElementById('filter-featured').value;
+
+  var list = DB.getProjects();
+
+  if (q)    list = list.filter(function(p) { return (p.title||'').toLowerCase().indexOf(q) > -1 || (p.tags||[]).some(function(t){ return (t||'').toLowerCase().indexOf(q) > -1; }); });
+  if (cat)  list = list.filter(function(p) { return p.category === cat; });
+  if (stat) list = list.filter(function(p) { return p.status === stat; });
+  if (feat === 'yes') list = list.filter(function(p) { return p.featured; });
+  if (feat === 'no')  list = list.filter(function(p) { return !p.featured; });
+
+  document.getElementById('proj-count').textContent = '(' + list.length + ')';
+
+  var tbody = document.getElementById('projects-table-body');
+  var empty = document.getElementById('empty-state');
+  var tableWrap = document.getElementById('table-wrap');
+
+  if (!list.length) {
+    tableWrap.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+
+  tableWrap.style.display = '';
+  empty.style.display = 'none';
+  tbody.innerHTML = '';
+
+  list.forEach(function(p) {
+    var tr = document.createElement('tr');
+
+    var thumbHtml = (p.thumbnail && p.thumbnail.src)
+      ? '<img class="td-thumb" src="' + p.thumbnail.src + '" alt="">'
+      : '<div class="td-thumb-placeholder">' + categoryIcon(p.category || '') + '</div>';
+
+    tr.innerHTML = '<td>' + thumbHtml + '</td>'
+      + '<td class="td-title">' + escHtml(p.title || 'Untitled') + '</td>'
+      + '<td><span class="td-tag">' + escHtml(p.category || '—') + '</span></td>'
+      + '<td>' + escHtml(String(p.year || '—')) + '</td>'
+      + '<td><span class="badge badge--' + (p.status||'draft') + '">' + (p.status||'draft') + '</span></td>'
+      + '<td>' + (p.featured ? '<span class="badge badge--featured">⭐ Featured</span>' : '<span style="color:var(--a-muted);font-size:12px">—</span>') + '</td>'
+      + '<td style="color:var(--a-muted)">' + formatDate(p.updatedAt) + '</td>'
+      + '<td><div class="td-actions">'
+      + '<button class="btn btn-sm btn-ghost" title="Move up" onclick="moveProject(\'' + p.id + '\',-1)">↑</button>'
+      + '<button class="btn btn-sm btn-ghost" title="Move down" onclick="moveProject(\'' + p.id + '\',1)">↓</button>'
+      + '<a href="edit.html?id=' + p.id + '" class="btn btn-sm btn-secondary">✏ Edit</a>'
+      + '<button class="btn btn-sm btn-ghost" onclick="toggleStatus(\'' + p.id + '\')">' + (p.status==='published' ? '⬇ Draft' : '⬆ Publish') + '</button>'
+      + '<button class="btn btn-sm btn-danger" onclick="deleteProject(\'' + p.id + '\')">🗑</button>'
+      + '</div></td>';
+
+    tbody.appendChild(tr);
+  });
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function moveProject(id, direction) {
+  var list = DB.getProjects();
+  var idx = list.findIndex(function(p) { return p.id === id; });
+  if (idx < 0) return;
+  var newIdx = idx + direction;
+  if (newIdx < 0 || newIdx >= list.length) return;
+  var swapped = list.slice();
+  var tmp = swapped[idx]; swapped[idx] = swapped[newIdx]; swapped[newIdx] = tmp;
+  DB.saveProjects(swapped);
+  renderProjects();
+}
+
+function toggleStatus(id) {
+  const p = DB.getProject(id);
+  if (!p) return;
+  const newStatus = p.status === 'published' ? 'draft' : 'published';
+  DB.updateProject(id, { status: newStatus });
+  toast(`Project ${newStatus === 'published' ? 'published' : 'moved to draft'}`);
+  renderProjects();
+}
+
+function deleteProject(id) {
+  var p = DB.getProject(id);
+  showConfirm('Delete "' + (p ? p.title : 'this project') + '"? This cannot be undone.', function() {
+    DB.deleteProject(id);
+    toast('Project deleted', 'error');
+    document.getElementById('sb-count').textContent = DB.getProjects().length;
+    renderProjects();
+  });
+}
+
+function forceSyncAll() {
+  var existing = DB.getProjects();
+  var existingIds = {};
+  existing.forEach(function(p) { existingIds[p.id] = true; });
+  var missing = PORTFOLIO_DEFAULTS.filter(function(d) { return !existingIds[d.id]; });
+  if (missing.length) {
+    DB.saveProjects(existing.concat(missing));
+    toast('Synced ' + missing.length + ' missing project' + (missing.length > 1 ? 's' : ''));
+  }
+  document.getElementById('sync-banner').style.display = 'none';
+  document.getElementById('sb-count').textContent = DB.getProjects().length;
+  renderProjects();
+}
+
+renderProjects();
+}; /* end window.initPage */
+</script>
+</body>
+</html>

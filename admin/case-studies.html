@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar__brand"><div class="sidebar__brand-mark">RK</div><div><div class="sidebar__brand-name">Ritesh Kumaar</div><div class="sidebar__brand-sub">Portfolio Admin</div></div></div>
+    <nav class="sidebar__nav">
+      <div class="sidebar__section">Main</div>
+      <a class="sidebar__link" href="dashboard.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a class="sidebar__link" href="projects.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>Projects<span class="sidebar__badge" id="sb-proj-count">0</span></a>
+      <a class="sidebar__link active" href="case-studies.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>Case Studies<span class="sidebar__badge" id="sb-cs-count">0</span></a>
+      <a class="sidebar__link" href="upload.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12l4-4 4 4"/></svg>Upload Project</a>
+      <a class="sidebar__link" href="media-library.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>Media Library</a>
+      <div class="sidebar__section">Config</div>
+      <a class="sidebar__link" href="settings.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Settings</a>
+      <a class="sidebar__link" href="../index.html" target="_blank"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Portfolio</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user"><div class="sidebar__avatar">A</div><div><div class="sidebar__username" id="sidebar-email">admin</div><div class="sidebar__role">Administrator</div></div></div>
+      <button onclick="Auth.logout()" class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px;color:rgba(255,255,255,0.4)">Sign Out</button>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar__title">Case Studies <span class="topbar__subtitle" id="cs-count"></span></div>
+      <div class="topbar__actions">
+        <button class="btn btn-primary" onclick="openAddModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Case Study
+        </button>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="table-wrap" id="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Platform</th>
+              <th>Status</th>
+              <th>Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cs-table-body"></tbody>
+        </table>
+      </div>
+      <div id="empty-state" style="display:none">
+        <div class="empty-state">
+          <div class="empty-state__icon">📋</div>
+          <div class="empty-state__title">No case studies yet</div>
+          <div class="empty-state__text">Add your first case study to get started.</div>
+          <button class="btn btn-primary" onclick="openAddModal()">Add Case Study</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EDIT / ADD MODAL ── -->
+<div id="cs-edit-overlay" class="dialog-overlay">
+  <div class="dialog" style="max-width:680px;width:100%;max-height:90vh;overflow-y:auto;background:var(--a-surface);border-radius:16px;border:1px solid var(--a-border)">
+    <div class="dialog-header" style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:1px solid var(--a-border)">
+      <span class="dialog-title" id="modal-heading" style="font-size:16px;font-weight:600;color:var(--a-text)">Edit Case Study</span>
+      <button class="btn btn-ghost btn-sm btn-icon" onclick="closeEditModal()">✕</button>
+    </div>
+    <div style="padding:20px 24px">
+      <input type="hidden" id="edit-cs-id">
+
+      <div class="form-grid form-grid--2" style="margin-bottom:14px">
+        <div class="form-group" style="margin:0">
+          <label class="form-label">Number <small>(e.g. 01)</small></label>
+          <input class="form-control" id="edit-number" placeholder="01" maxlength="4">
+        </div>
+        <div class="form-group" style="margin:0">
+          <label class="form-label">Type / Category</label>
+          <input class="form-control" id="edit-type" placeholder="Motion Campaign">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Title <span>*</span></label>
+        <input class="form-control" id="edit-title" placeholder="Case study title">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Business Goal</label>
+        <textarea class="form-control" id="edit-goal" rows="2" placeholder="What was the business objective?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">My Role</label>
+        <input class="form-control" id="edit-role" placeholder="Creative Direction, Motion Design…">
+      </div>
+
+      <div class="form-grid form-grid--2" style="margin-bottom:14px">
+        <div class="form-group" style="margin:0">
+          <label class="form-label">Platform</label>
+          <input class="form-control" id="edit-platform" placeholder="LinkedIn, Instagram…">
+        </div>
+        <div class="form-group" style="margin:0">
+          <label class="form-label">Tools</label>
+          <input class="form-control" id="edit-tools" placeholder="After Effects, Figma…">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" id="edit-description" rows="3" placeholder="Full case study description…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tags <small>(comma-separated)</small></label>
+        <input class="form-control" id="edit-tags" placeholder="Motion, B2B, Social Video">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Hero Visual Style <small style="color:var(--a-muted)">(background gradient when no cover image)</small></label>
+        <select class="form-control" id="edit-hero-class">
+          <option value="visual-motion">Motion (blue glow)</option>
+          <option value="visual-social">Social (purple glow)</option>
+          <option value="visual-web">Web (green glow)</option>
+          <option value="visual-brand">Brand (orange glow)</option>
+          <option value="visual-gif">GIF (amber glow)</option>
+        </select>
+      </div>
+
+      <!-- Cover Image -->
+      <div class="form-group">
+        <label class="form-label">Cover Image <small style="color:var(--a-muted)">(shown on case study card)</small></label>
+        <input type="hidden" id="edit-hero-media">
+        <div id="cs-cover-preview" style="width:100%;aspect-ratio:16/9;background:var(--a-bg);border:1px solid var(--a-border);border-radius:10px;margin-bottom:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--a-muted);font-size:12px;position:relative">
+          <span id="cs-cover-placeholder">No cover image</span>
+          <img id="cs-cover-img" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+          <button id="cs-cover-remove" onclick="removeCoverImage()" style="display:none;position:absolute;top:8px;right:8px;background:rgba(0,0,0,.7);border:none;color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:14px;line-height:1">×</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="btn btn-secondary btn-sm" style="cursor:pointer;margin:0">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:5px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Upload New
+            <input type="file" id="cs-cover-file-input" accept="image/*,video/*" style="display:none" onchange="uploadCoverFile(this.files[0])">
+          </label>
+          <button class="btn btn-secondary btn-sm" onclick="openMediaPicker()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:5px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+            Pick from Library
+          </button>
+          <span id="cs-cover-upload-status" style="font-size:11px;color:var(--a-primary);align-self:center"></span>
+        </div>
+      </div>
+
+      <!-- ── Frames ── -->
+      <div class="form-group">
+        <label class="form-label">Frames <small style="color:var(--a-muted)">(appear below the hero image on the case study card)</small></label>
+        <div style="display:flex;flex-direction:column;gap:10px">
+
+          <div style="background:var(--a-bg);border:1px solid var(--a-border);border-radius:10px;padding:12px">
+            <div style="font-size:11px;font-weight:600;color:var(--a-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Frame 1</div>
+            <div class="form-grid form-grid--2" style="margin-bottom:8px">
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Visual Style</label>
+                <select class="form-control" id="frame-0-class" style="font-size:12px;padding:6px 8px">
+                  <option value="visual-motion">Motion (blue glow)</option>
+                  <option value="visual-social">Social (purple glow)</option>
+                  <option value="visual-web">Web (green glow)</option>
+                  <option value="visual-brand">Brand (orange glow)</option>
+                  <option value="visual-gif">GIF (amber glow)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Label</label>
+                <input class="form-control" id="frame-0-label" placeholder="Frame 1" style="font-size:12px;padding:6px 8px">
+              </div>
+            </div>
+            <input type="hidden" id="frame-0-media">
+            <div id="frame-0-preview" style="height:56px;background:var(--a-surface);border:1px dashed var(--a-border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;overflow:hidden;position:relative">
+              <span id="frame-0-ph" style="font-size:11px;color:var(--a-muted)">No image</span>
+              <img id="frame-0-img" src="" alt="" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+              <button id="frame-0-rm" onclick="removeFrameMedia(0)" style="display:none;position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);border:none;color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1">×</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="openMediaPickerFor(0)" style="font-size:11px">Pick Image from Library</button>
+          </div>
+
+          <div style="background:var(--a-bg);border:1px solid var(--a-border);border-radius:10px;padding:12px">
+            <div style="font-size:11px;font-weight:600;color:var(--a-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Frame 2</div>
+            <div class="form-grid form-grid--2" style="margin-bottom:8px">
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Visual Style</label>
+                <select class="form-control" id="frame-1-class" style="font-size:12px;padding:6px 8px">
+                  <option value="visual-motion">Motion (blue glow)</option>
+                  <option value="visual-social">Social (purple glow)</option>
+                  <option value="visual-web">Web (green glow)</option>
+                  <option value="visual-brand">Brand (orange glow)</option>
+                  <option value="visual-gif">GIF (amber glow)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Label</label>
+                <input class="form-control" id="frame-1-label" placeholder="Frame 2" style="font-size:12px;padding:6px 8px">
+              </div>
+            </div>
+            <input type="hidden" id="frame-1-media">
+            <div id="frame-1-preview" style="height:56px;background:var(--a-surface);border:1px dashed var(--a-border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;overflow:hidden;position:relative">
+              <span id="frame-1-ph" style="font-size:11px;color:var(--a-muted)">No image</span>
+              <img id="frame-1-img" src="" alt="" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+              <button id="frame-1-rm" onclick="removeFrameMedia(1)" style="display:none;position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);border:none;color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1">×</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="openMediaPickerFor(1)" style="font-size:11px">Pick Image from Library</button>
+          </div>
+
+          <div style="background:var(--a-bg);border:1px solid var(--a-border);border-radius:10px;padding:12px">
+            <div style="font-size:11px;font-weight:600;color:var(--a-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Frame 3</div>
+            <div class="form-grid form-grid--2" style="margin-bottom:8px">
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Visual Style</label>
+                <select class="form-control" id="frame-2-class" style="font-size:12px;padding:6px 8px">
+                  <option value="visual-motion">Motion (blue glow)</option>
+                  <option value="visual-social">Social (purple glow)</option>
+                  <option value="visual-web">Web (green glow)</option>
+                  <option value="visual-brand">Brand (orange glow)</option>
+                  <option value="visual-gif">GIF (amber glow)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin:0">
+                <label class="form-label" style="font-size:11px">Label</label>
+                <input class="form-control" id="frame-2-label" placeholder="Frame 3" style="font-size:12px;padding:6px 8px">
+              </div>
+            </div>
+            <input type="hidden" id="frame-2-media">
+            <div id="frame-2-preview" style="height:56px;background:var(--a-surface);border:1px dashed var(--a-border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;overflow:hidden;position:relative">
+              <span id="frame-2-ph" style="font-size:11px;color:var(--a-muted)">No image</span>
+              <img id="frame-2-img" src="" alt="" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+              <button id="frame-2-rm" onclick="removeFrameMedia(2)" style="display:none;position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);border:none;color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1">×</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="openMediaPickerFor(2)" style="font-size:11px">Pick Image from Library</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select class="form-control" id="edit-status">
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+    </div>
+    <div class="dialog-footer" style="display:flex;gap:8px;justify-content:flex-end;padding:12px 24px 20px;border-top:1px solid var(--a-border)">
+      <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEditModal()">Save Case Study</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEDIA PICKER ── -->
+<div id="media-picker-overlay" class="dialog-overlay" style="z-index:99999">
+  <div class="dialog" style="max-width:760px;width:100%;max-height:85vh;display:flex;flex-direction:column;background:var(--a-surface);border-radius:16px;border:1px solid var(--a-border)">
+    <div class="dialog-header" style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--a-border);flex-shrink:0">
+      <span style="font-size:15px;font-weight:600;color:var(--a-text)">Pick from Media Library</span>
+      <button class="btn btn-ghost btn-sm btn-icon" onclick="closeMediaPicker()">✕</button>
+    </div>
+    <div style="padding:14px 20px;border-bottom:1px solid var(--a-border);flex-shrink:0">
+      <input type="text" class="form-control" id="media-picker-search" placeholder="Search…" oninput="renderPickerGrid()" style="max-width:280px">
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:16px 20px">
+      <div id="media-picker-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px"></div>
+      <div id="media-picker-empty" style="display:none;text-align:center;color:var(--a-muted);padding:40px 0;font-size:13px">No media files. Upload first.</div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="admin.js"></script>
+<script>
+var _editingId = null;
+var _pickerTarget = 'cover';
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderCaseStudies() {
+  var list = DB.getCaseStudies();
+  document.getElementById('cs-count').textContent = '(' + list.length + ')';
+  document.getElementById('sb-cs-count').textContent = list.length;
+
+  var tbody = document.getElementById('cs-table-body');
+  var empty = document.getElementById('empty-state');
+  var tableWrap = document.getElementById('table-wrap');
+
+  if (!list.length) {
+    tableWrap.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+
+  tableWrap.style.display = '';
+  empty.style.display = 'none';
+  tbody.innerHTML = '';
+
+  list.forEach(function(cs, idx) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td style="color:var(--a-muted);font-size:12px">' + (cs.number || String(idx + 1).padStart(2,'0')) + '</td>'
+      + '<td class="td-title">' + escHtml(cs.title || 'Untitled') + '</td>'
+      + '<td><span class="td-tag">' + escHtml(cs.type || '—') + '</span></td>'
+      + '<td style="font-size:12px;color:var(--a-muted)">' + escHtml(cs.platform || '—') + '</td>'
+      + '<td><span class="badge badge--' + (cs.status || 'draft') + '">' + (cs.status || 'draft') + '</span></td>'
+      + '<td style="color:var(--a-muted)">' + formatDate(cs.updatedAt) + '</td>'
+      + '<td><div class="td-actions">'
+      + '<button class="btn btn-sm btn-ghost" title="Move up" onclick="moveCS(\'' + cs.id + '\',-1)">↑</button>'
+      + '<button class="btn btn-sm btn-ghost" title="Move down" onclick="moveCS(\'' + cs.id + '\',1)">↓</button>'
+      + '<button class="btn btn-sm btn-secondary" onclick="openEditModal(\'' + cs.id + '\')">✏ Edit</button>'
+      + '<button class="btn btn-sm btn-ghost" onclick="toggleCSStatus(\'' + cs.id + '\')">' + (cs.status === 'published' ? '⬇ Draft' : '⬆ Publish') + '</button>'
+      + '<button class="btn btn-sm btn-danger" onclick="deleteCS(\'' + cs.id + '\')">🗑</button>'
+      + '</div></td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function moveCS(id, dir) {
+  var list = DB.getCaseStudies();
+  var idx = list.findIndex(function(cs) { return cs.id === id; });
+  if (idx < 0) return;
+  var newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= list.length) return;
+  var arr = list.slice();
+  var tmp = arr[idx]; arr[idx] = arr[newIdx]; arr[newIdx] = tmp;
+  DB.saveCaseStudies(arr);
+  renderCaseStudies();
+}
+
+function toggleCSStatus(id) {
+  var cs = DB.getCaseStudy(id);
+  if (!cs) return;
+  DB.updateCaseStudy(id, { status: cs.status === 'published' ? 'draft' : 'published' });
+  toast('Status updated');
+  renderCaseStudies();
+}
+
+function deleteCS(id) {
+  var cs = DB.getCaseStudy(id);
+  showConfirm('Delete "' + (cs ? cs.title : 'this case study') + '"? This cannot be undone.', function() {
+    DB.deleteCaseStudy(id);
+    toast('Case study deleted');
+    renderCaseStudies();
+  });
+}
+
+function openAddModal() {
+  _editingId = null;
+  document.getElementById('modal-heading').textContent = 'New Case Study';
+  clearEditForm();
+  showModal();
+}
+
+function openEditModal(id) {
+  var cs = DB.getCaseStudy(id);
+  if (!cs) return;
+  _editingId = id;
+  document.getElementById('modal-heading').textContent = 'Edit Case Study';
+  document.getElementById('edit-cs-id').value = id;
+  document.getElementById('edit-number').value = cs.number || '';
+  document.getElementById('edit-type').value = cs.type || '';
+  document.getElementById('edit-title').value = cs.title || '';
+  document.getElementById('edit-goal').value = cs.businessGoal || '';
+  document.getElementById('edit-role').value = cs.role || '';
+  document.getElementById('edit-platform').value = cs.platform || '';
+  document.getElementById('edit-tools').value = cs.tools || '';
+  document.getElementById('edit-description').value = cs.description || '';
+  document.getElementById('edit-tags').value = (cs.tags || []).join(', ');
+  document.getElementById('edit-hero-class').value = cs.heroVisualClass || 'visual-motion';
+  document.getElementById('edit-status').value = cs.status || 'published';
+  var heroUrl = cs.heroMedia && (typeof cs.heroMedia === 'string' ? cs.heroMedia : (cs.heroMedia.src||''));
+  setCoverPreview(heroUrl || '');
+  var savedFrames = cs.frames || [];
+  [0,1,2].forEach(function(i) {
+    var f = savedFrames[i] || {};
+    document.getElementById('frame-'+i+'-class').value = f.visualClass || 'visual-motion';
+    document.getElementById('frame-'+i+'-label').value = f.label || '';
+    var fUrl = f.media && (typeof f.media === 'string' ? f.media : (f.media.src||''));
+    setFramePreview(i, fUrl||'');
+  });
+  showModal();
+}
+
+function clearEditForm() {
+  ['edit-cs-id','edit-number','edit-type','edit-title','edit-goal','edit-role',
+   'edit-platform','edit-tools','edit-description','edit-tags'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('edit-hero-class').value = 'visual-motion';
+  document.getElementById('edit-status').value = 'published';
+  setCoverPreview('');
+  [0,1,2].forEach(function(i) {
+    document.getElementById('frame-'+i+'-class').value = 'visual-motion';
+    document.getElementById('frame-'+i+'-label').value = '';
+    setFramePreview(i, '');
+  });
+}
+
+function showModal() {
+  document.getElementById('cs-edit-overlay').classList.add('open');
+}
+
+function closeEditModal() {
+  document.getElementById('cs-edit-overlay').classList.remove('open');
+}
+
+function saveEditModal() {
+  var title = (document.getElementById('edit-title').value || '').trim();
+  if (!title) { toast('Title is required', 'error'); return; }
+
+  var tagsRaw = (document.getElementById('edit-tags').value || '');
+  var tags = tagsRaw.split(',').map(function(t) { return t.trim(); }).filter(Boolean);
+
+  var frames = [0,1,2].map(function(i) {
+    return {
+      visualClass: document.getElementById('frame-'+i+'-class').value,
+      label:       (document.getElementById('frame-'+i+'-label').value||'').trim(),
+      media:       document.getElementById('frame-'+i+'-media').value || null
+    };
+  }).filter(function(f) { return f.label || f.media; });
+
+  var data = {
+    number:          document.getElementById('edit-number').value.trim(),
+    type:            document.getElementById('edit-type').value.trim(),
+    title:           title,
+    businessGoal:    document.getElementById('edit-goal').value.trim(),
+    role:            document.getElementById('edit-role').value.trim(),
+    platform:        document.getElementById('edit-platform').value.trim(),
+    tools:           document.getElementById('edit-tools').value.trim(),
+    description:     document.getElementById('edit-description').value.trim(),
+    tags:            tags,
+    heroVisualClass: document.getElementById('edit-hero-class').value,
+    heroMedia:       document.getElementById('edit-hero-media').value || null,
+    heroLabel:       title,
+    frames:          frames,
+    status:          document.getElementById('edit-status').value
+  };
+
+  if (_editingId) {
+    DB.updateCaseStudy(_editingId, data);
+    toast('Case study updated');
+  } else {
+    DB.addCaseStudy(data);
+    toast('Case study created');
+  }
+
+  closeEditModal();
+  renderCaseStudies();
+}
+
+document.getElementById('cs-edit-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeEditModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var picker = document.getElementById('media-picker-overlay');
+    if (picker && picker.classList.contains('open')) { closeMediaPicker(); return; }
+    closeEditModal();
+  }
+});
+
+/* ── Cover image helpers ── */
+function setCoverPreview(url) {
+  var hidden = document.getElementById('edit-hero-media');
+  var img    = document.getElementById('cs-cover-img');
+  var ph     = document.getElementById('cs-cover-placeholder');
+  var rmBtn  = document.getElementById('cs-cover-remove');
+  hidden.value = url || '';
+  if (url) {
+    img.src = url;
+    img.style.display = 'block';
+    ph.style.display = 'none';
+    rmBtn.style.display = 'block';
+  } else {
+    img.src = '';
+    img.style.display = 'none';
+    ph.style.display = '';
+    rmBtn.style.display = 'none';
+  }
+}
+
+function removeCoverImage() {
+  setCoverPreview('');
+  document.getElementById('cs-cover-file-input').value = '';
+}
+
+async function uploadCoverFile(file) {
+  if (!file) return;
+  if (file.size > 50 * 1024 * 1024) { toast('File exceeds 50 MB', 'error'); return; }
+  var status = document.getElementById('cs-cover-upload-status');
+  if (status) status.textContent = 'Uploading…';
+  try {
+    var result = await uploadToStorage(file, function(pct) {
+      if (status) status.textContent = 'Uploading ' + Math.round(pct * 100) + '%…';
+    });
+    DB.addMedia({ name: file.name, type: getFileType(file), size: file.size, src: result.url, storagePath: result.path, uploadedAt: new Date().toISOString().split('T')[0] });
+    setCoverPreview(result.url);
+    if (status) status.textContent = '';
+    toast('Cover uploaded');
+  } catch(e) {
+    toast('Upload failed: ' + e.message, 'error');
+    if (status) status.textContent = '';
+  }
+}
+
+/* ── Media Picker ── */
+function openMediaPicker() {
+  _pickerTarget = 'cover';
+  renderPickerGrid();
+  document.getElementById('media-picker-overlay').classList.add('open');
+}
+
+function openMediaPickerFor(frameIdx) {
+  _pickerTarget = frameIdx;
+  renderPickerGrid();
+  document.getElementById('media-picker-overlay').classList.add('open');
+}
+
+function closeMediaPicker() {
+  document.getElementById('media-picker-overlay').classList.remove('open');
+  document.getElementById('media-picker-search').value = '';
+}
+
+function renderPickerGrid() {
+  var q = (document.getElementById('media-picker-search').value || '').toLowerCase();
+  var items = DB.getMedia().filter(function(m) { return m.type === 'image' || m.type === 'gif'; });
+  if (q) items = items.filter(function(m) { return (m.name || '').toLowerCase().includes(q); });
+  var grid = document.getElementById('media-picker-grid');
+  var empty = document.getElementById('media-picker-empty');
+  if (!items.length) {
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+  grid.style.display = '';
+  empty.style.display = 'none';
+  grid.innerHTML = items.map(function(m) {
+    return '<div onclick="pickMedia(\'' + m.id + '\')" style="cursor:pointer;border-radius:8px;overflow:hidden;aspect-ratio:1;background:#111;border:2px solid transparent;transition:border-color .15s" onmouseover="this.style.borderColor=\'#3b82f6\'" onmouseout="this.style.borderColor=\'transparent\'">'
+      + '<img src="' + m.src + '" alt="' + (m.name || '') + '" style="width:100%;height:100%;object-fit:cover;display:block">'
+      + '</div>';
+  }).join('');
+}
+
+function pickMedia(id) {
+  var m = DB.getMediaItem(id);
+  if (!m) return;
+  if (_pickerTarget === 'cover') {
+    setCoverPreview(m.src);
+    toast('Cover image selected');
+  } else if (typeof _pickerTarget === 'number') {
+    setFramePreview(_pickerTarget, m.src);
+    toast('Frame ' + (_pickerTarget + 1) + ' image selected');
+  }
+  closeMediaPicker();
+}
+
+/* ── Frame helpers ── */
+function setFramePreview(idx, url) {
+  var hidden = document.getElementById('frame-'+idx+'-media');
+  var img    = document.getElementById('frame-'+idx+'-img');
+  var ph     = document.getElementById('frame-'+idx+'-ph');
+  var rm     = document.getElementById('frame-'+idx+'-rm');
+  if (!hidden) return;
+  hidden.value = url || '';
+  if (url) {
+    img.src = url; img.style.display = 'block';
+    ph.style.display = 'none'; rm.style.display = 'block';
+  } else {
+    img.src = ''; img.style.display = 'none';
+    ph.style.display = ''; rm.style.display = 'none';
+  }
+}
+
+function removeFrameMedia(idx) {
+  setFramePreview(idx, '');
+}
+
+document.getElementById('media-picker-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeMediaPicker();
+});
+
+window.initPage = function() {
+  var sbProjCount = document.getElementById('sb-proj-count');
+  if (sbProjCount) sbProjCount.textContent = DB.getProjects().length;
+  renderCaseStudies();
+};
+</script>
+</body>
+</html>

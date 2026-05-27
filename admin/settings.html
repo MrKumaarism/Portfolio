@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar__brand"><div class="sidebar__brand-mark">RK</div><div><div class="sidebar__brand-name">Ritesh Kumaar</div><div class="sidebar__brand-sub">Portfolio Admin</div></div></div>
+    <nav class="sidebar__nav">
+      <div class="sidebar__section">Main</div>
+      <a class="sidebar__link" href="dashboard.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a class="sidebar__link" href="projects.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>Projects<span class="sidebar__badge" id="sb-count">0</span></a>
+      <a class="sidebar__link" href="case-studies.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>Case Studies</a>
+      <a class="sidebar__link" href="upload.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12l4-4 4 4"/></svg>Upload Project</a>
+      <a class="sidebar__link" href="media-library.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>Media Library</a>
+      <div class="sidebar__section">Config</div>
+      <a class="sidebar__link" href="settings.html"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+      <a class="sidebar__link" href="../index.html" target="_blank"><svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Portfolio</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user"><div class="sidebar__avatar">A</div><div><div class="sidebar__username" id="sidebar-email">admin</div><div class="sidebar__role">Administrator</div></div></div>
+      <button onclick="Auth.logout()" class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px;color:rgba(255,255,255,0.4)">Sign Out</button>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar__title">Settings</div>
+    </div>
+
+    <div class="page-content" style="max-width:760px">
+
+      <!-- ── ADMIN CREDENTIALS ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><div class="card-title">Admin Credentials</div></div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="form-label">Admin Email</label>
+            <input type="email" id="setting-email" class="form-control" placeholder="admin@portfolio.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current Password</label>
+            <input type="password" id="setting-current-pass" class="form-control" placeholder="Enter current password to confirm changes">
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="form-group">
+              <label class="form-label">New Password</label>
+              <input type="password" id="setting-new-pass" class="form-control" placeholder="Leave blank to keep current">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Confirm New Password</label>
+              <input type="password" id="setting-confirm-pass" class="form-control" placeholder="Re-enter new password">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="saveCredentials()">Update Credentials</button>
+        </div>
+      </div>
+
+      <!-- ── PORTFOLIO INFO ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><div class="card-title">Portfolio Info</div></div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="form-label">Portfolio Name</label>
+            <input type="text" id="setting-portfolio-name" class="form-control" placeholder="Ritesh Kumaar">
+          </div>
+          <button class="btn btn-primary" onclick="savePortfolioInfo()">Save</button>
+        </div>
+      </div>
+
+      <!-- ── CATEGORIES ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><div class="card-title">Project Categories</div></div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--a-muted);margin-bottom:14px">These appear in gallery filters and the upload form.</p>
+          <div id="categories-list" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px"></div>
+          <div style="display:flex;gap:8px">
+            <input type="text" id="new-category-input" class="form-control" placeholder="New category name" style="max-width:240px" onkeydown="if(event.key==='Enter')addCategory()">
+            <button class="btn btn-secondary" onclick="addCategory()">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DEFAULT TOOLS ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><div class="card-title">Default Tools</div></div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--a-muted);margin-bottom:14px">Tools shown as quick-select buttons on the upload form.</p>
+          <div id="tools-list" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px"></div>
+          <div style="display:flex;gap:8px">
+            <input type="text" id="new-tool-input" class="form-control" placeholder="Tool name" style="max-width:240px" onkeydown="if(event.key==='Enter')addTool()">
+            <button class="btn btn-secondary" onclick="addTool()">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GALLERY SECTION ORDER ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header">
+          <div class="card-title">Gallery Section Order</div>
+          <div style="margin-left:auto;font-size:12px;color:var(--a-muted)">Drag to reorder</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--a-muted);margin-bottom:14px">Sets the display order of sections in the portfolio Work Gallery.</p>
+          <div id="section-order-list"></div>
+          <button class="btn btn-primary" style="margin-top:14px" onclick="saveSectionOrder()">Save Order</button>
+        </div>
+      </div>
+
+      <!-- ── DATA MANAGEMENT ── -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><div class="card-title">Data Management</div></div>
+        <div class="card-body">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--a-border)">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Export Data</div>
+              <div style="font-size:12px;color:var(--a-muted)">Download all projects as JSON backup</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="exportData()">Export JSON</button>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--a-border)">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Sync Portfolio Content</div>
+              <div style="font-size:12px;color:var(--a-muted)">Add any missing portfolio items to admin (preserves your edits)</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="syncPortfolio()">Sync Now</button>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--a-border)">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Import Data</div>
+              <div style="font-size:12px;color:var(--a-muted)">Restore from a JSON backup file</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('import-file').click()">Import JSON</button>
+          </div>
+          <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
+
+          <div style="padding:12px 0" id="storage-info">
+            <div style="font-size:13px;font-weight:600;color:var(--a-text);margin-bottom:6px">Storage Usage</div>
+            <div id="storage-bar-wrap" style="background:var(--a-border);border-radius:6px;height:8px;margin-bottom:6px"><div id="storage-bar" style="background:var(--a-primary);height:8px;border-radius:6px;transition:width .4s"></div></div>
+            <div id="storage-text" style="font-size:12px;color:var(--a-muted)"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── DANGER ZONE ── -->
+      <div class="card" style="margin-bottom:40px;border:1px solid rgba(220,50,50,.25)">
+        <div class="card-header"><div class="card-title" style="color:#e35">Danger Zone</div></div>
+        <div class="card-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--a-border)">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Clear All Projects</div>
+              <div style="font-size:12px;color:var(--a-muted)">Delete every project (keeps settings)</div>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="clearProjects()">Clear Projects</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--a-border)">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Clear Media Library</div>
+              <div style="font-size:12px;color:var(--a-muted)">Delete all uploaded media files</div>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="clearMedia()">Clear Media</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--a-text)">Reset Everything</div>
+              <div style="font-size:12px;color:var(--a-muted)">Wipe all data and restore factory defaults</div>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="resetAll()">Reset All</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="admin.js"></script>
+<script>
+var settings = {};
+
+window.initPage = function() {
+document.getElementById('sb-count').textContent = DB.getProjects().length;
+
+settings = DB.getSettings();
+
+const user = Auth.currentUser;
+document.getElementById('setting-email').value = (user && user.email) || settings.adminEmail || '';
+document.getElementById('setting-portfolio-name').value = settings.portfolioName || '';
+
+/* Render categories */
+function renderCategories() {
+  const list = document.getElementById('categories-list');
+  list.innerHTML = settings.categories.map((c, i) => `
+    <span style="display:inline-flex;align-items:center;gap:6px;background:var(--a-border);border-radius:20px;padding:4px 10px 4px 12px;font-size:12px;font-weight:600;color:var(--a-text)">
+      ${c}
+      <button onclick="removeCategory(${i})" style="background:none;border:none;cursor:pointer;color:var(--a-muted);font-size:14px;line-height:1;padding:0">×</button>
+    </span>`).join('');
+}
+
+function addCategory() {
+  const inp = document.getElementById('new-category-input');
+  const val = inp.value.trim();
+  if (!val || settings.categories.includes(val)) return;
+  settings.categories.push(val);
+  DB.saveSettings(settings);
+  renderCategories();
+  inp.value = '';
+  toast('Category added');
+}
+
+function removeCategory(i) {
+  settings.categories.splice(i, 1);
+  DB.saveSettings(settings);
+  renderCategories();
+}
+
+/* Render tools */
+function renderTools() {
+  const list = document.getElementById('tools-list');
+  list.innerHTML = settings.defaultTools.map((t, i) => `
+    <span style="display:inline-flex;align-items:center;gap:6px;background:var(--a-border);border-radius:20px;padding:4px 10px 4px 12px;font-size:12px;font-weight:600;color:var(--a-text)">
+      ${t}
+      <button onclick="removeTool(${i})" style="background:none;border:none;cursor:pointer;color:var(--a-muted);font-size:14px;line-height:1;padding:0">×</button>
+    </span>`).join('');
+}
+
+function addTool() {
+  const inp = document.getElementById('new-tool-input');
+  const val = inp.value.trim();
+  if (!val || settings.defaultTools.includes(val)) return;
+  settings.defaultTools.push(val);
+  DB.saveSettings(settings);
+  renderTools();
+  inp.value = '';
+  toast('Tool added');
+}
+
+function removeTool(i) {
+  settings.defaultTools.splice(i, 1);
+  DB.saveSettings(settings);
+  renderTools();
+}
+
+/* Credentials — uses Firebase Auth */
+async function saveCredentials() {
+  const email       = document.getElementById('setting-email').value.trim();
+  const currentPass = document.getElementById('setting-current-pass').value;
+  const newPass     = document.getElementById('setting-new-pass').value;
+  const confirmPass = document.getElementById('setting-confirm-pass').value;
+
+  if (!email) { toast('Email is required', 'error'); return; }
+  if (!currentPass) { toast('Current password is required to save changes', 'error'); return; }
+  if (newPass && newPass !== confirmPass) { toast('New passwords do not match', 'error'); return; }
+
+  try {
+    await Auth.updateCredentials(currentPass, email, newPass || null);
+    toast('Credentials updated in Firebase');
+    document.getElementById('setting-current-pass').value = '';
+    document.getElementById('setting-new-pass').value = '';
+    document.getElementById('setting-confirm-pass').value = '';
+  } catch (ex) {
+    toast(ex.message || 'Update failed', 'error');
+  }
+}
+
+/* Portfolio info */
+function savePortfolioInfo() {
+  settings.portfolioName = document.getElementById('setting-portfolio-name').value.trim();
+  DB.saveSettings(settings);
+  toast('Settings saved');
+}
+
+/* Storage */
+function updateStorage() {
+  let total = 0;
+  try { total = new Blob(Object.values(localStorage)).size; } catch {}
+  const maxBytes = 5 * 1024 * 1024;
+  const pct = Math.min((total / maxBytes) * 100, 100);
+  document.getElementById('storage-bar').style.width = pct + '%';
+  document.getElementById('storage-bar').style.background = pct > 80 ? '#e35' : 'var(--a-primary)';
+  document.getElementById('storage-text').textContent = `${formatSize(total)} used of ~5 MB localStorage limit`;
+}
+
+/* Export */
+function exportData() {
+  const data = { projects: DB.getProjects(), settings: DB.getSettings(), exportedAt: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `rk-portfolio-backup-${Date.now()}.json` });
+  a.click(); URL.revokeObjectURL(a.href);
+  toast('Backup downloaded');
+}
+
+/* Import */
+function importData(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const fr = new FileReader();
+  fr.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!data.projects) throw new Error('Invalid backup file');
+      showConfirm('This will REPLACE all current projects with the backup. Continue?', () => {
+        DB.saveProjects(data.projects);
+        if (data.settings) DB.saveSettings(data.settings);
+        toast('Data imported successfully');
+        updateStorage();
+        document.getElementById('sb-count').textContent = DB.getProjects().length;
+      });
+    } catch { toast('Invalid backup file', 'error'); }
+  };
+  fr.readAsText(file);
+  e.target.value = '';
+}
+
+/* Danger zone */
+function syncPortfolio() {
+  const existing = DB.getProjects();
+  const existingIds = new Set(existing.map(p => p.id));
+  const added = PORTFOLIO_DEFAULTS.filter(p => !existingIds.has(p.id));
+  if (!added.length) { toast('Already in sync — all portfolio items present'); return; }
+  DB.saveProjects([...existing, ...added]);
+  toast(`Synced ${added.length} missing item${added.length > 1 ? 's' : ''} from portfolio`);
+  document.getElementById('sb-count').textContent = DB.getProjects().length;
+  updateStorage();
+}
+
+function clearProjects() {
+  showConfirm('Delete ALL projects? This cannot be undone.', () => {
+    DB.saveProjects([]);
+    toast('All projects deleted', 'error');
+    document.getElementById('sb-count').textContent = '0';
+    updateStorage();
+  });
+}
+
+function clearMedia() {
+  showConfirm('Delete ALL media files? This cannot be undone.', () => {
+    DB.saveMedia([]);
+    toast('Media library cleared', 'error');
+    updateStorage();
+  });
+}
+
+function resetAll() {
+  showConfirm('Reset EVERYTHING to factory defaults? All data will be lost.', () => {
+    localStorage.removeItem(DB.KEY_PROJECTS);
+    localStorage.removeItem(DB.KEY_MEDIA);
+    localStorage.removeItem(DB.KEY_SETTINGS);
+    toast('Reset complete. Reloading…', 'error');
+    setTimeout(() => window.location.reload(), 1200);
+  });
+}
+
+/* Gallery section order */
+var SECTION_DEFS = [
+  { id: 'wgs-motion', label: 'Motion Video' },
+  { id: 'wgs-social', label: 'Social Media & Static' },
+  { id: 'wgs-gif',    label: 'GIF Animations' },
+  { id: 'wgs-brand',  label: 'Logo & Brand Identity' },
+  { id: 'wgs-admin',  label: 'Other Projects' }
+];
+var KEY_SECTION_ORDER = 'rk_section_order';
+
+function getSectionOrder() {
+  try {
+    var stored = JSON.parse(localStorage.getItem(KEY_SECTION_ORDER) || 'null');
+    if (Array.isArray(stored) && stored.length) {
+      /* Merge: add any new defs not in stored, keep stored order for known ones */
+      var known = new Set(stored);
+      SECTION_DEFS.forEach(function(d) { if (!known.has(d.id)) stored.push(d.id); });
+      return stored;
+    }
+  } catch(e) {}
+  return SECTION_DEFS.map(function(s) { return s.id; });
+}
+
+var sectionOrder = getSectionOrder();
+var dragSrcIdx = null;
+
+function renderSectionOrder() {
+  var list = document.getElementById('section-order-list');
+  list.innerHTML = '';
+  sectionOrder.forEach(function(id, i) {
+    var def = SECTION_DEFS.find(function(s) { return s.id === id; }) || { id: id, label: id };
+    var row = document.createElement('div');
+    row.className = 'so-row';
+    row.draggable = true;
+    row.dataset.idx = i;
+    row.innerHTML = '<span class="so-handle" title="Drag to reorder">&#9776;</span>'
+      + '<span class="so-label">' + def.label + '</span>'
+      + '<span class="so-pos">' + (i + 1) + '</span>';
+
+    row.addEventListener('dragstart', function(e) {
+      dragSrcIdx = parseInt(this.dataset.idx);
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(function() { row.classList.add('so-dragging'); }, 0);
+    });
+    row.addEventListener('dragend', function() {
+      row.classList.remove('so-dragging');
+      list.querySelectorAll('.so-row').forEach(function(r) { r.classList.remove('so-over'); });
+    });
+    row.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      list.querySelectorAll('.so-row').forEach(function(r) { r.classList.remove('so-over'); });
+      this.classList.add('so-over');
+    });
+    row.addEventListener('dragleave', function() { this.classList.remove('so-over'); });
+    row.addEventListener('drop', function(e) {
+      e.preventDefault();
+      var targetIdx = parseInt(this.dataset.idx);
+      if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+      var moved = sectionOrder.splice(dragSrcIdx, 1)[0];
+      sectionOrder.splice(targetIdx, 0, moved);
+      dragSrcIdx = null;
+      renderSectionOrder();
+    });
+
+    list.appendChild(row);
+  });
+}
+
+function saveSectionOrder() {
+  localStorage.setItem(KEY_SECTION_ORDER, JSON.stringify(sectionOrder));
+  toast('Section order saved — reload portfolio to apply');
+}
+
+/* Init */
+renderCategories();
+renderTools();
+updateStorage();
+renderSectionOrder();
+}; /* end window.initPage */
+</script>
+</body>
+</html>
