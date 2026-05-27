@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Ritesh Kumaar — AI Creative &amp; Product Design Lead | SaaS GTM | AppExchange</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0 !important; padding: 0 !important; background: #0d0d0f !important; min-height: 100vh !important; overflow-x: hidden !important; }
+  #dev-nav, #rk-loader { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+  .page { display: block !important; margin-top: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; transform: translate3d(0,0,0) !important; will-change: transform !important; }
+  .site-nav.is-hidden, .site-nav.nav-hidden, .site-nav.hidden { transform: translate3d(0,0,0) !important; opacity: 1 !important; visibility: visible !important; }
+  .nav-inner { gap: 20px; }
+  .nav-links { display: flex; align-items: center; justify-content: center; gap: 26px; flex-wrap: wrap; }
+  .nav-links .nav-link, .nav-links .nav-sub-link { white-space: nowrap; }
+  @media (max-width: 980px) { .nav-links { gap: 14px; font-size: 13px; } }
+  body::before, html::before { content: none !important; display: none !important; }
+  .nav-links a.active { color: #fff !important; }
+</style>
+<style id="rk-logo-home-fix">
+  html, body { margin: 0 !important; padding-top: 0 !important; }
+  .site-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 2147483647 !important; }
+  .nav-logo a { color: inherit !important; text-decoration: none !important; cursor: pointer !important; }
+  .nav-logo a:hover { opacity: 0.85; }
+  .nav-links .nav-link.active { outline: none; }
+</style>
+<style id="temporary-subscription-and-metric-fix">
+  .site-nav .nav-sub-link, .nav-drawer .nav-sub-link { display: none !important; }
+  .metrics-tile .metric { white-space: nowrap !important; }
+  .metrics-tile .metric-num { display: inline-block !important; vertical-align: baseline !important; line-height: 0.95 !important; }
+  .metrics-tile .metric-suffix { display: inline-block !important; vertical-align: super !important; margin-left: 4px !important; line-height: 1 !important; position: relative !important; top: -0.15em !important; }
+  .metrics-tile .metric-label { white-space: normal !important; }
+</style>
+</head>
+<body>
+
+<div id="rk-cursor"></div>
+<div id="rk-cursor-outer"></div>
+<div id="rk-loader"><span class="rk-loader-text">loading</span></div>
+
+<div class="page visible" id="pg-home">
+
+  <nav class="site-nav" id="nav-home">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="./index.html" aria-label="Go to Home">Mr. Kumaar</a></div>
+      <div class="nav-links">
+        <a href="./pages/case-studies.html" class="nav-link">Case Studies</a>
+        <a href="./pages/work-gallery.html" class="nav-link">Work Gallery</a>
+        <a href="./pages/creative-leadership.html" class="nav-link">Creative Leadership</a>
+        <a href="./pages/experience.html" class="nav-link">Experience</a>
+        <a href="./pages/about.html" class="nav-link">About</a>
+        <a href="./pages/contact.html" class="nav-link">Contact</a>
+        <a href="./pages/subscription.html" class="nav-link nav-sub-link">Creative Subscription ↗</a>
+      </div>
+      <a href="./pages/contact.html" class="btn-pill nav-cta">Hire Me</a>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="nav-drawer-home">
+    <a href="./index.html" class="nav-drawer-link">Home</a>
+    <a href="./pages/case-studies.html" class="nav-drawer-link">Case Studies</a>
+    <a href="./pages/work-gallery.html" class="nav-drawer-link">Work Gallery</a>
+    <a href="./pages/creative-leadership.html" class="nav-drawer-link">Leadership</a>
+    <a href="./pages/experience.html" class="nav-drawer-link">Experience</a>
+    <a href="./pages/about.html" class="nav-drawer-link">About</a>
+    <a href="./pages/contact.html" class="btn-pill nav-cta">Hire Me</a>
+    <a href="./pages/subscription.html" class="nav-sub-link">Creative Subscription ↗</a>
+  </div>
+
+  <section class="hero-v2" id="hero-v2">
+    <div class="hero-v2__left">
+      <div class="hero-v2__portrait" id="hero-v2-portrait">
+        <div class="hero-v2__photo-placeholder"></div>
+      </div>
+      <ul class="hero-v2__social" id="hero-v2-social">
+        <li><a href="https://linkedin.com/in/mrkumaar" target="_blank" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a></li>
+        <li><a href="mailto:info.riteshkumaar@gmail.com" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a></li>
+        <li><a href="https://riteshkumaar.in" target="_blank" title="Portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <div class="hero-v2__right">
+      <div class="hero-v2__body">
+        <div class="hero-v2__main-col">
+          <div class="hero-v2__headline">
+            <div class="hero-v2__word-wrap">
+              <span class="hero-v2__word" id="hero-word-1">Hi, This is Mr. Kumaar</span>
+            </div>
+            <div class="hero-v2__word-wrap">
+              <span class="hero-v2__word hero-v2__word--role" id="hero-word-2">AI Creative · Design Lead</span>
+            </div>
+          </div>
+          <p class="hero-v2__sub" id="hero-tagline">Noida-based Creative &amp; Product Design Lead with 9+ years transforming SaaS brands through AI-augmented design, motion, and GTM strategy.</p>
+          <div class="hero-v2__stats" id="hero-v2-status">
+            <div class="hero-v2__stat">
+              <span class="hero-v2__stat-num">09</span>
+              <span class="hero-v2__stat-label">Years<br>of Experience</span>
+            </div>
+            <div class="hero-v2__stat">
+              <span class="hero-v2__stat-num">45+</span>
+              <span class="hero-v2__stat-label">Clients<br>Worldwide</span>
+            </div>
+          </div>
+          <div class="hero-v2__cta-row">
+            <a href="https://linkedin.com/in/mrkumaar" target="_blank" class="hero-v2__btn hero-v2__btn--primary">Download My CV</a>
+            <a href="#" class="hero-v2__btn hero-v2__btn--secondary">Hire me</a>
+            <button class="hero-v2__play" aria-label="Watch showreel">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="6,3 20,12 6,21"/></svg>
+            </button>
+          </div>
+          <div class="hero-v2__plans-label">
+            <a href="./pages/subscription.html">
+              <span class="hero-v2__plans-title">Plans &amp; Perks</span>
+              <span class="hero-v2__plans-sub">Crafted for You</span>
+              <svg class="hero-v2__plans-arrow" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 6H2"/><path d="M8 2 2 6l6 4"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="hero-v2__nav-col" id="hero-v2-nav">
+          <div class="hero-v2__nav-grid">
+            <a href="./pages/about.html" class="hero-v2__ncard hero-v2__ncard--tl">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.87 3.13-7 7-7s7 3.13 7 7"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">About me</span>
+              <span class="hero-v2__ncard-sub">Who Am I</span>
+            </a>
+            <a href="./pages/work-gallery.html" class="hero-v2__nav-info" role="button">
+              <span class="hero-v2__nav-info-label">Portfolio</span>
+              <span class="hero-v2__nav-info-sub">Discover my latest<br>creative projects.</span>
+              <svg class="hero-v2__nav-info-arrow" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h32"/><path d="M28 2l6 4-6 4"/></svg>
+            </a>
+            <a href="./pages/subscription.html" class="hero-v2__ncard hero-v2__ncard--bl">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">Services</span>
+              <span class="hero-v2__ncard-sub">Crafted Solutions</span>
+            </a>
+            <a href="./pages/experience.html" class="hero-v2__ncard hero-v2__ncard--br">
+              <div class="hero-v2__ncard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+              </div>
+              <span class="hero-v2__ncard-title">Skills &amp; Exp</span>
+              <span class="hero-v2__ncard-sub">My previous Story</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-v2__marquee">
+    <div class="hero-v2__marquee-track">
+      <span>info.riteshkumaar@gmail.com</span><span class="msep">·</span>
+      <span>AI Creative &amp; Product Design Lead</span><span class="msep">·</span>
+      <span>Salesforce AppExchange &amp; SaaS GTM</span><span class="msep">·</span>
+      <span>Noida / Delhi NCR &nbsp;·&nbsp; Open to Remote</span><span class="msep">·</span>
+      <span>info.riteshkumaar@gmail.com</span><span class="msep">·</span>
+      <span>AI Creative &amp; Product Design Lead</span><span class="msep">·</span>
+      <span>Salesforce AppExchange &amp; SaaS GTM</span><span class="msep">·</span>
+      <span>Noida / Delhi NCR &nbsp;·&nbsp; Open to Remote</span><span class="msep">·</span>
+    </div>
+  </div>
+
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <span class="trust-label">Industries worked across</span>
+        <div class="trust-divider"></div>
+        <div class="trust-pills">
+          <span class="trust-pill">Salesforce ISV</span>
+          <span class="trust-pill">B2B SaaS</span>
+          <span class="trust-pill">IT Services</span>
+          <span class="trust-pill">FMCG / Retail</span>
+          <span class="trust-pill">E-commerce</span>
+          <span class="trust-pill">Healthcare</span>
+          <span class="trust-pill">Finance</span>
+          <span class="trust-pill">Real Estate</span>
+          <span class="trust-pill">Education</span>
+          <span class="trust-pill">Startups</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light metrics-tile">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric reveal"><span class="metric-num" data-target="11">0</span><span class="metric-suffix">+</span><div class="metric-label">Years of Experience</div></div>
+        <div class="metric reveal reveal-delay-1"><span class="metric-num" data-target="45">0</span><span class="metric-suffix">+</span><div class="metric-label">Clients &amp; Brands Served</div></div>
+        <div class="metric reveal reveal-delay-2"><span class="metric-num" data-target="200">0</span><span class="metric-suffix">+</span><div class="metric-label">Creative Assets Delivered</div></div>
+        <div class="metric reveal reveal-delay-3"><span class="metric-num" data-target="8">0</span><span class="metric-suffix">+</span><div class="metric-label">Industries Worked Across</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Selected Work</div>
+        <h2 class="display-h2">Work That Shows Strategy + Execution</h2>
+        <p class="section-body">A curated mix of motion, campaign, web, and brand projects — presented as creative case studies, not just final outputs.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="cs-card reveal">
+          <div class="cs-card-img visual-block visual-motion"><div class="visual-inner"><div class="visual-label">Motion Campaign</div></div></div>
+          <div class="cs-card-body">
+            <div class="cs-type">Motion Campaign</div>
+            <h3 class="cs-title">B2B Product Launch Video Campaign</h3>
+            <p class="cs-desc">Built a short-form motion campaign to simplify product messaging and drive social engagement.</p>
+            <div class="tag-row"><span class="tag">Creative Direction</span><span class="tag">Storyboard</span><span class="tag">Motion Design</span></div>
+            <a href="./pages/case-studies.html#cs-motion-campaign" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+        <div class="cs-card reveal reveal-delay-1">
+          <div class="cs-card-img visual-block visual-web"><div class="visual-inner"><div class="visual-label">Landing Page</div></div></div>
+          <div class="cs-card-body">
+            <div class="cs-type">Website / Landing Page</div>
+            <h3 class="cs-title">Digital Landing Page Experience</h3>
+            <p class="cs-desc">Designed a conversion-focused landing page with clear visual hierarchy and responsive design direction.</p>
+            <div class="tag-row"><span class="tag">UI Direction</span><span class="tag">Layout Strategy</span><span class="tag">Visual Design</span></div>
+            <a href="./pages/case-studies.html#cs-landing-page" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+        <div class="cs-card reveal reveal-delay-2">
+          <div class="cs-card-img visual-block visual-brand"><div class="visual-inner"><div class="visual-label">Brand System</div></div></div>
+          <div class="cs-card-body">
+            <div class="cs-type">Brand + Social System</div>
+            <h3 class="cs-title">Social Media Creative System</h3>
+            <p class="cs-desc">Created scalable social assets — statics, carousels, GIFs, and video creatives under one visual direction.</p>
+            <div class="tag-row"><span class="tag">Art Direction</span><span class="tag">Design System</span><span class="tag">Social Campaign</span></div>
+            <a href="./pages/case-studies.html#cs-social-system" class="btn-pill-outline btn-sm">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="./pages/case-studies.html" class="btn-pill-outline">View All Case Studies →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow eyebrow-light">Creative Capabilities</div>
+        <h2 class="display-h2 on-dark">What I Bring as a Creative Leader</h2>
+        <p class="section-body on-dark">My focus is on translating business goals into creative systems — from concept and direction to execution and quality review.</p>
+      </div>
+      <div class="card-grid-4">
+        <div class="cap-card reveal"><div class="cap-icon">🖥️</div><h3 class="cap-title">AI &amp; Product Design</h3><p class="cap-desc">UI/UX strategy, Figma design systems (75+ components), interaction design, onboarding flows, CRO-informed landing pages.</p></div>
+        <div class="cap-card reveal reveal-delay-1"><div class="cap-icon">🎬</div><h3 class="cap-title">Motion &amp; AI Video</h3><p class="cap-desc">After Effects, Synthesia, Sora, KlingAI, AI voiceovers (ElevenLabs) — SaaS demos, product explainers, social reels, GIFs.</p></div>
+        <div class="cap-card reveal reveal-delay-2"><div class="cap-icon">🚀</div><h3 class="cap-title">SaaS GTM &amp; AppExchange</h3><p class="cap-desc">AppExchange listing optimization, GTM campaign design, partner co-marketing, event branding, brand systems for SaaS products.</p></div>
+        <div class="cap-card reveal reveal-delay-3"><div class="cap-icon">⚙️</div><h3 class="cap-title">DesignOps &amp; Leadership</h3><p class="cap-desc">Team management, creative QA, stakeholder alignment, structured handoffs — reduced feedback rounds from 5 to 2.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Work Snapshot</div>
+        <h2 class="display-h2">Work Across Motion, Social, Web &amp; Brand</h2>
+        <p class="section-body">Selected creative outputs across formats. Detailed thinking and process inside case studies.</p>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Motion</button>
+        <button class="filter-tab">Social</button>
+        <button class="filter-tab">Web</button>
+        <button class="filter-tab">Branding</button>
+        <button class="filter-tab">GIFs</button>
+      </div>
+      <div class="gallery-grid-3" id="home-snapshot-gallery">
+        <div class="gallery-item reveal ws-clickable" data-category="motion" onclick="openWorkSnapshotItem('ws-1');return false;"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Motion Video</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Product Campaign Video</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1 ws-clickable" data-category="social" onclick="openWorkSnapshotItem('ws-2');return false;"><div class="visual-block visual-social gallery-thumb"><div class="visual-inner"><div class="visual-label">Social Post</div></div></div><div class="gallery-meta"><span class="gallery-tag">Social</span><div class="gallery-name">B2B Social Campaign</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2 ws-clickable" data-category="web" onclick="openWorkSnapshotItem('ws-3');return false;"><div class="visual-block visual-web gallery-thumb"><div class="visual-inner"><div class="visual-label">Landing Page</div></div></div><div class="gallery-meta"><span class="gallery-tag">Web</span><div class="gallery-name">Landing Page Design</div></div></div>
+        <div class="gallery-item reveal reveal-delay-1 ws-clickable" data-category="branding" onclick="openWorkSnapshotItem('ws-4');return false;"><div class="visual-block visual-brand gallery-thumb"><div class="visual-inner"><div class="visual-label">Logo System</div></div></div><div class="gallery-meta"><span class="gallery-tag">Branding</span><div class="gallery-name">Brand Identity System</div></div></div>
+        <div class="gallery-item reveal reveal-delay-2 ws-clickable" data-category="gifs" onclick="openWorkSnapshotItem('ws-5');return false;"><div class="visual-block visual-gif gallery-thumb"><div class="visual-inner"><div class="visual-label">GIF Animation</div></div></div><div class="gallery-meta"><span class="gallery-tag">GIF</span><div class="gallery-name">Animated Campaign GIF</div></div></div>
+        <div class="gallery-item reveal reveal-delay-3 ws-clickable" data-category="motion" onclick="openWorkSnapshotItem('ws-6');return false;"><div class="visual-block visual-motion gallery-thumb"><div class="visual-inner"><div class="visual-label">Campaign Visual</div></div></div><div class="gallery-meta"><span class="gallery-tag">Motion</span><div class="gallery-name">Digital Campaign System</div></div></div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="./pages/work-gallery.html" class="btn-pill-outline">Explore Work Gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-parchment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Leadership Impact</div>
+        <h2 class="display-h2">Design That Supports Business Goals</h2>
+      </div>
+      <div class="impact-grid reveal">
+        <div class="impact-item"><div class="impact-num">60%</div><div class="impact-desc">Lead generation increase via motion-first SaaS demos and onboarding videos</div></div>
+        <div class="impact-item"><div class="impact-num">38%</div><div class="impact-desc">AppExchange install conversion lift after redesigning 4 product listings</div></div>
+        <div class="impact-item"><div class="impact-num">45%</div><div class="impact-desc">Feature adoption improvement through UX redesign and onboarding flows</div></div>
+        <div class="impact-item"><div class="impact-num">50%</div><div class="impact-desc">Higher conversion rate from CRO-informed landing page revamp across 8 pages</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-strip">
+    <div class="container">
+      <div class="testimonial-quote reveal">
+        <span class="testimonial-mark">"</span>
+        <p class="testimonial-text">I don't just design assets — I build Figma systems, lead AI-augmented workflows, and help SaaS teams communicate product value that converts and drives measurable pipeline growth.</p>
+        <div class="testimonial-attr">— Ritesh Kumaar · <strong>AI-Augmented Creative &amp; Product Design Lead</strong> · 11+ Years · Salesforce AppExchange &amp; SaaS GTM</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow eyebrow-light">How I Work</div>
+        <h2 class="display-h2 on-dark">My Creative Process</h2>
+        <p class="section-body on-dark">From brief to final output — a structured approach to creative direction and campaign execution.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal"><div class="step-num">01</div><h3 class="step-title">Understand the Goal</h3><p class="step-desc">Define audience, platform, message, and business objective before any visual work begins.</p></div>
+        <div class="process-step reveal reveal-delay-1"><div class="step-num">02</div><h3 class="step-title">Build the Direction</h3><p class="step-desc">Create moodboards, visual references, and campaign structure to align team direction.</p></div>
+        <div class="process-step reveal reveal-delay-2"><div class="step-num">03</div><h3 class="step-title">Plan the Story</h3><p class="step-desc">Develop wireframes, artboards, storyboards, and content flow to map execution.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-num">04</div><h3 class="step-title">Execute the System</h3><p class="step-desc">Design and animate assets across required platforms, formats, and brand guidelines.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-num">05</div><h3 class="step-title">Review &amp; Scale</h3><p class="step-desc">Refine quality, adapt assets, maintain brand consistency across the full campaign.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-light">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <div class="eyebrow">Two Ways to Work Together</div>
+        <h2 class="display-h2">How Can I Help You?</h2>
+      </div>
+      <div class="path-grid">
+        <div class="path-card reveal">
+          <div class="path-icon">🏢</div>
+          <h3 class="path-title">Looking to Hire?</h3>
+          <p class="path-desc">Explore my experience, leadership approach, selected case studies, and resume for Creative Manager / Art Director / Motion Design Lead roles.</p>
+          <a href="./pages/experience.html" class="btn-pill">View Experience</a>
+          <a href="./pages/case-studies.html" class="btn-pill-outline">View Case Studies</a>
+        </div>
+        <div class="path-card path-card-secondary reveal reveal-delay-1">
+          <div class="path-icon">🤝</div>
+          <h3 class="path-title">Need Creative Support?</h3>
+          <p class="path-desc">I offer structured creative partnership models for brands needing consistent design, motion, and campaign support on a monthly retainer basis.</p>
+          <a href="./pages/subscription.html" class="btn-pill-ghost">View Creative Subscription →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tile-dark cta-tile">
+    <div class="container text-center reveal">
+      <h2 class="display-h2 on-dark">Let's Build Creative Work That Moves People<br>and Supports Business Growth</h2>
+      <p class="section-body on-dark" style="margin-bottom:40px;">Available for senior creative leadership roles across motion, brand, campaigns, and digital design.</p>
+      <div class="cta-row cta-row-center">
+        <a href="./pages/case-studies.html" class="btn-pill">View Case Studies</a>
+        <a href="#" class="btn-pill-outline-light">Download Resume</a>
+        <a href="./pages/contact.html" class="btn-pill-outline-light">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Ritesh Kumaar</div>
+        <div class="footer-tagline">Creative Design Leader · Noida / Delhi NCR, India</div>
+      </div>
+      <div class="footer-links">
+        <a href="./pages/case-studies.html">Case Studies</a>
+        <a href="./pages/work-gallery.html">Work Gallery</a>
+        <a href="./pages/experience.html">Experience</a>
+        <a href="./pages/about.html">About</a>
+        <a href="./pages/contact.html">Contact</a>
+        <a href="./pages/subscription.html" class="footer-accent">Creative Subscription</a>
+      </div>
+      <div class="footer-social">
+        <div style="margin-bottom:4px;">linkedin.com/in/mrkumaar · riteshkumaar.in</div>
+        <div>info.riteshkumaar@gmail.com · +91-72100 15010</div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-home -->
+
+<div id="rk-modal" class="rkm" role="dialog" aria-modal="true" aria-labelledby="rkm-title" aria-describedby="rkm-desc" hidden>
+  <div class="rkm__backdrop" id="rkm-backdrop"></div>
+  <div class="rkm__card" id="rkm-card" tabindex="-1">
+    <div class="rkm__head">
+      <div class="rkm__titles">
+        <h2 class="rkm__title" id="rkm-title"></h2>
+        <p class="rkm__desc" id="rkm-desc"></p>
+      </div>
+      <button class="rkm__close" id="rkm-close" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="16" height="16">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="rkm__body" id="rkm-body"></div>
+    <div class="rkm__foot" id="rkm-foot">
+      <button class="rkm__btn rkm__btn--secondary" id="rkm-cancel">Maybe later</button>
+      <button class="rkm__btn rkm__btn--primary" id="rkm-submit">Send inquiry</button>
+    </div>
+  </div>
+</div>
+
+<script src="portfolio.js"></script>
+<script type="module" src="firebase-public-sync.js"></script>
+</body>
+</html>
